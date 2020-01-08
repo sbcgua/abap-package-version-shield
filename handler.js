@@ -122,7 +122,7 @@ function fetchResource(url) {
 }
 
 function parseSourceFile(fileData, attrName) {
-    const abapConstantRe = new RegExp(`constants\\s+${attrName}\\s+(type\\s+\\S+\\s+)?value\\s+(\\S+)\\s*\\.`, 'i');
+    const abapConstantRe = new RegExp(`constants\\s+${attrName}\\s+(type\\s+\\S+\\s+)?value\\s+(\\S+)(\\s|\\.)`, 'i');
     const match = abapConstantRe.exec(fileData);
     // console.log(abapConstantRe);
     // console.log(match);
