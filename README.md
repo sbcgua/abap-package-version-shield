@@ -1,5 +1,7 @@
 # ABAP package version shield
 
+**ATTENTION: ALPHA VERSION, use with care**
+
 https://img.shields.io/endpoint?url=https://{LAMBDA}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/type/owner/repo/file/attr
 
 Example
