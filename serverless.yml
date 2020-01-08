@@ -1,0 +1,23 @@
+# The `service` block is the name of the service
+service: abap-package-version-shield
+
+# The `provider` block defines where your service will be deployed
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-1
+
+package:
+  exclude:
+    - secrets
+
+# The `functions` block defines what code to deploy
+functions:
+  getAbapVersionShieldJson:
+    handler: handler.getShieldJson
+    memorySize: 128
+    events:
+      - http:
+          path: get-abap-version-shield-json/{paramz}
+          method: get
+          cors: true

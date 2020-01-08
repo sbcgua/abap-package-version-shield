@@ -1,0 +1,17 @@
+{
+  "name": "abap-package-version-shield",
+  "version": "1.0.0",
+  "description": "Custom handler for shields.io to display abap package version",
+  "main": "playground.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint *.js",
+    "deploy": "serverless deploy"
+  },
+  "author": "Alexander Tsybulsky",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "jest": "^24.9.0"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module"
+  },
+  "env": {
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "rules": {
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "semi":   ["error", "always", { "omitLastInOneLineBlock": true}],
+    "no-console": "off",
+    "no-trailing-spaces": ["error"],
+    "indent": ["error", 4]
+  }
+}
