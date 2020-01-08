@@ -1,5 +1,19 @@
 @hostPrefix = u0zlg8upk8
 
+### With Path
+
+### simple
+GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap
+
+### with attr
+GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version
+
+### wrong request
+GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/wrongstuff
+
+
+### With Query string
+
 ### simple
 GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json
     ?type=github
@@ -8,7 +22,6 @@ GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-vers
     &file=src/zif_mockup_loader_constants.intf.abap
 
 ### with attr
-
 GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json
     ?type=github
     &owner=sbcgua
@@ -17,6 +30,5 @@ GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-vers
     &attr=version
 
 ### wrong request
-
 GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json
     ?type=wrongtype

@@ -18,6 +18,6 @@ functions:
     memorySize: 128
     events:
       - http:
-          path: get-abap-version-shield-json/{paramz}
+          path: get-abap-version-shield-json/{sourcePath+}
           method: get
           cors: true

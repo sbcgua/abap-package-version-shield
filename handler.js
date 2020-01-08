@@ -4,6 +4,7 @@ const https = require('https');
 // eslint-disable-next-line no-unused-vars
 module.exports.getShieldJson = async (event, context, callback) => {
     try {
+        // return buildResponse({ event, context });
         return await handleEvent(event, context);
     } catch (error) {
         console.error(error);
@@ -13,16 +14,66 @@ module.exports.getShieldJson = async (event, context, callback) => {
 
 // eslint-disable-next-line no-unused-vars
 async function handleEvent(event, context) {
-    console.log('Request params', event.queryStringParameters);
-    const validatedParams = validateParams(event.queryStringParameters);
+    // queryStringParameters
+    // console.log('Request params', event.queryStringParameters);
+    // const validatedParams = validateQueryParams(event.queryStringParameters);
+
+    // path params
+    console.log('Requested path', event.path);
+    const validatedParams = validateAndParsePath(event.resource, event.path);
+
     const url = createUrlFromParams(validatedParams);
     const srcData = await fetchResource(url);
     const version = parseSourceFile(srcData, validatedParams.attr);
-    const response = buildResponse(version);
+    const response = buildSuccessResponse(version);
     return response;
 }
 
-function validateParams(params) {
+const enumify = list => Object.freeze(list.reduce((prev, i, index) => Object.assign(prev, { [i]: index }), {}));
+
+function validateAndParsePath(resource, path) {
+    const prefixLen = resource.indexOf('{sourcePath');
+    if (prefixLen < 0) throw Error('Incorrect resource name');
+    const paramPath = path.substr(prefixLen);
+    const segments = paramPath.split('/').filter(s => s !== '');
+    if (segments.length === 0) throw Error('Unexpected path');
+
+    const STATES = enumify(['TYPE', 'OWNER', 'REPO', 'FILE', 'ATTR', 'END']);
+    let expected = STATES.TYPE;
+    let params = {};
+    for (const seg of segments) {
+        switch (expected) {
+        case STATES.TYPE:
+            params.type = seg;
+            expected++;
+            break;
+        case STATES.OWNER:
+            params.owner = seg;
+            expected++;
+            break;
+        case STATES.REPO:
+            params.repo = seg;
+            expected++;
+            break;
+        case STATES.FILE:
+            if (/\.abap$/i.test(seg)) expected++;
+            params.file ? (params.file += '/') : (params.file = '');
+            params.file += seg;
+            break;
+        case STATES.ATTR:
+            params.attr = seg;
+            expected++;
+            break;
+        case STATES.END:
+            throw Error('Unexpect path segment');
+        default:
+            throw Error('Unexpected parsing state');
+        }
+    }
+    return validateQueryParams(params);
+}
+
+function validateQueryParams(params) {
     if (!params.type) throw Error('Repository type not specified'); // 400 bad request
     if (!params.owner) throw Error('Owner not specified');
     if (!params.repo) throw Error('Repository name not specified');
@@ -83,32 +134,27 @@ function parseSourceFile(fileData, attrName) {
     return version;
 }
 
-function buildResponse(version) {
+function buildResponse(body, code = 200) {
     const response = {
-        statusCode: 200,
-        headers: {
-            'Access-Control-Allow-Origin': '*', // Required for CORS support to work
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            message: version,
-            schemaVersion: 1,
-            label: 'abap package version',
-            color: 'orange',
-        }),
-    };
-    return response;
-}
-
-function buildErrorResponce(message, code = 400) {
-    return {
         statusCode: code,
         headers: {
             'Access-Control-Allow-Origin': '*', // Required for CORS support to work
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            message,
-        }),
+        body: JSON.stringify(body),
     };
+    return response;
+}
+
+function buildSuccessResponse(version) {
+    return buildResponse({
+        message: version,
+        schemaVersion: 1,
+        label: 'abap package version',
+        color: 'orange',
+    });
+}
+
+function buildErrorResponce(message, code = 400) {
+    return buildResponse({ message }, code);
 }
