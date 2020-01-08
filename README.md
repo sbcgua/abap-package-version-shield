@@ -2,7 +2,8 @@
 
 https://img.shields.io/endpoint?url=https://{LAMBDA}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/type/owner/repo/file/attr
 
-- type=github
+Example
+- type=github (only this for now)
 - owner=sbcgua
 - repo=mockup_loader
 - file=src/zif_mockup_loader_constants.intf.abap
