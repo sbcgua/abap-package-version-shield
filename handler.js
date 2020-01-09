@@ -29,7 +29,7 @@ module.exports.getShieldJson = async (event, context, callback) => {
 async function handleEvent(event, context) {
     console.log('Requested path', event.path);
 
-    const params = parsePathParams(event.resource, event.path);
+    const params = parsePathParams(event);
     const validatedParams = validateQueryParams(params);
     const url = createUrlFromParams(validatedParams);
     const srcData = await fetchResource(url);
