@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint *.js",
-    "deploy": "serverless deploy"
+    "deploy": "./bin/deploy-dev.sh"
   },
   "author": "Alexander Tsybulsky",
   "license": "ISC",
