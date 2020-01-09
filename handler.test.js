@@ -147,7 +147,7 @@ describe('test with apack', () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                message: '0.2',
+                message: 'v0.2',
                 schemaVersion: 1,
                 label: 'abap package version',
                 color: 'orange',

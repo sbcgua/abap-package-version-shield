@@ -39,11 +39,12 @@ async function handleEvent(event, context) {
     const validatedParams = validateQueryParams(params);
     const url = createUrlFromParams(validatedParams);
     const srcData = await fetchResource(url);
-    const version = (validatedParams.file === APACK_FILENAME)
+    let version = (validatedParams.file === APACK_FILENAME)
         ? getVersionFromApack(srcData)
         : parseSourceFile(srcData, validatedParams.attr);
 
     validateVersion(version);
+    if (/\d/.test(version[0])) version = 'v' + version;
     const response = buildSuccessResponse(version);
     return response;
 }
