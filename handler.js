@@ -27,12 +27,8 @@ module.exports.getShieldJson = async (event, context, callback) => {
 
 // eslint-disable-next-line no-unused-vars
 async function handleEvent(event, context) {
-    // queryStringParameters
-    // console.log('Request params', event.queryStringParameters);
-    // const validatedParams = validateQueryParams(event.queryStringParameters);
-
-    // path params
     console.log('Requested path', event.path);
+
     const params = parsePathParams(event.resource, event.path);
     const validatedParams = validateQueryParams(params);
     const url = createUrlFromParams(validatedParams);
