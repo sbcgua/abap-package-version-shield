@@ -11,6 +11,7 @@ const {
 } = require('./lib/params');
 
 const {
+    validateVersion,
     parseSourceFile,
 } = require('./lib/parse');
 
@@ -47,11 +48,6 @@ function createUrlFromParams({type, owner, repo, file}) {
     } else {
         throw Error('Unexpected url type');
     }
-}
-
-function validateVersion(version) {
-    const versionRe = /^v?\d{1..3}\.\d{1..3}\.\d{1..3}$/i;
-    if (!versionRe.test(version)) throw Error('Unexpected verison format');
 }
 
 function buildSuccessResponse(version) {
