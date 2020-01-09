@@ -5,8 +5,9 @@
   "main": "playground.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint *.js",
-    "deploy": "./bin/deploy-dev.sh"
+    "lint": "eslint . lib",
+    "deploy": "./bin/deploy-dev.sh",
+    "logs": "serverless logs -f getAbapVersionShieldJson --stage dev -t"
   },
   "author": "Alexander Tsybulsky",
   "license": "ISC",

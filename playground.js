@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const handler = require('./handler');
 
 (async function main() {
