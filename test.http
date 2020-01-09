@@ -11,24 +11,3 @@ GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-vers
 ### wrong request
 GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/wrongstuff
 
-
-### With Query string
-
-### simple
-GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json
-    ?type=github
-    &owner=sbcgua
-    &repo=mockup_loader
-    &file=src/zif_mockup_loader_constants.intf.abap
-
-### with attr
-GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json
-    ?type=github
-    &owner=sbcgua
-    &repo=mockup_loader
-    &file=src/zif_mockup_loader_constants.intf.abap
-    &attr=version
-
-### wrong request
-GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json
-    ?type=wrongtype
