@@ -16,6 +16,15 @@ https.get.mockImplementation((url, handler) => {
         resMock.write('interface zif_mockup_loader_constants.');
         resMock.write('  constants version type string value \'XYZ\'. "#EC NOTEXT');
         resMock.write('endinterface.');
+    } else if (url === 'https://raw.githubusercontent.com/zzz/apack-test/master/.apack-manifest.xml') {
+        resMock.write('<?xml version="1.0" encoding="utf-8"?>');
+        resMock.write('<asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">');
+        resMock.write(' <asx:values>');
+        resMock.write('  <DATA>');
+        resMock.write('   <VERSION>0.2</VERSION>');
+        resMock.write('  </DATA>');
+        resMock.write(' </asx:values>');
+        resMock.write('</asx:abap>');
     }
     resMock.end();
 
@@ -112,5 +121,41 @@ describe('test with path params', () => {
             }),
         });
         expect(console.error).toBeCalled();
+    });
+});
+
+describe('test with apack', () => {
+    test('should work with apack', async () => {
+        const event = {
+            resource: '/get-abap-version-shield-json/{sourcePath}',
+            path: '/get-abap-version-shield-json/github/zzz/apack-test/.apack-manifest.xml',
+            pathParameters: {
+                sourcePath: 'github/zzz/apack-test/.apack-manifest.xml'
+            },
+        };
+        const context = {};
+
+        global.console = {
+            log: jest.fn(),
+            error: jest.fn(),
+        };
+
+        await expect(handler.getShieldJson(event, context)).resolves.toEqual({
+            statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: '0.2',
+                schemaVersion: 1,
+                label: 'abap package version',
+                color: 'orange',
+            }),
+        });
+
+        expect(console.log).toHaveBeenNthCalledWith(1, 'Requested path:', event.path);
+        expect(console.log).toHaveBeenNthCalledWith(2, 'URL:', 'https://raw.githubusercontent.com/zzz/apack-test/master/.apack-manifest.xml');
+        expect(console.log).toHaveBeenNthCalledWith(3, 'fetch statusCode: 200');
     });
 });

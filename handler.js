@@ -15,6 +15,11 @@ const {
     parseSourceFile,
 } = require('./lib/parse');
 
+const {
+    APACK_FILENAME,
+    getVersionFromApack,
+} = require('./lib/apack');
+
 // eslint-disable-next-line no-unused-vars
 module.exports.getShieldJson = async (event, context, callback) => {
     try {
@@ -34,7 +39,10 @@ async function handleEvent(event, context) {
     const validatedParams = validateQueryParams(params);
     const url = createUrlFromParams(validatedParams);
     const srcData = await fetchResource(url);
-    const version = parseSourceFile(srcData, validatedParams.attr);
+    const version = (validatedParams.file === APACK_FILENAME)
+        ? getVersionFromApack(srcData)
+        : parseSourceFile(srcData, validatedParams.attr);
+
     validateVersion(version);
     const response = buildSuccessResponse(version);
     return response;
