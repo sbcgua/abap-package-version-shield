@@ -24,8 +24,16 @@ describe('test with path params', () => {
         const event = {
             resource: '/get-abap-version-shield-json/{sourcePath}',
             path: '/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version',
+            pathParameters: {
+                sourcePath: 'github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version'
+            },
         };
         const context = {};
+
+        global.console = {
+            log: jest.fn(),
+            error: jest.fn(),
+        };
 
         await expect(handler.getShieldJson(event, context)).resolves.toEqual({
             statusCode: 200,
@@ -40,12 +48,19 @@ describe('test with path params', () => {
                 color: 'orange',
             }),
         });
+
+        expect(console.log).toHaveBeenNthCalledWith(1, 'Requested path:', event.path);
+        expect(console.log).toHaveBeenNthCalledWith(2, 'URL:', 'https://raw.githubusercontent.com/sbcgua/mockup_loader/master/src/zif_mockup_loader_constants.intf.abap');
+        expect(console.log).toHaveBeenNthCalledWith(3, 'fetch statusCode: 200');
     });
 
     test('should fail with wrong request', async () => {
         const event = {
-            resource: '/get-abap-version-shield-json/{sourcePath}',
-            path: '/get-abap-version-shield-json/xxx',
+            // resource: '/get-abap-version-shield-json/{sourcePath}',
+            // path: '/get-abap-version-shield-json/xxx',
+            pathParameters: {
+                sourcePath: 'xxx'
+            },
         };
         const context = {};
 
