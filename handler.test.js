@@ -12,6 +12,10 @@ https.get.mockImplementation((url, handler) => {
         resMock.write('interface zif_mockup_loader_constants.');
         resMock.write('  constants version type string value \'v2.1.5\'. "#EC NOTEXT');
         resMock.write('endinterface.');
+    } else if (url === 'https://raw.githubusercontent.com/sbcgua/mockup_loader/master/src/zif_incorrect.intf.abap') {
+        resMock.write('interface zif_mockup_loader_constants.');
+        resMock.write('  constants version type string value \'XYZ\'. "#EC NOTEXT');
+        resMock.write('endinterface.');
     }
     resMock.end();
 
@@ -77,6 +81,34 @@ describe('test with path params', () => {
             },
             body: JSON.stringify({
                 message: 'Owner not specified',
+            }),
+        });
+        expect(console.error).toBeCalled();
+    });
+
+    test('should fail with wrong version format', async () => {
+        const event = {
+            resource: '/get-abap-version-shield-json/{sourcePath}',
+            path: '/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_incorrect.intf.abap/version',
+            pathParameters: {
+                sourcePath: 'github/sbcgua/mockup_loader/src/zif_incorrect.intf.abap/version'
+            },
+        };
+        const context = {};
+
+        global.console = {
+            log: jest.fn(),
+            error: jest.fn(),
+        };
+
+        await expect(handler.getShieldJson(event, context)).resolves.toEqual({
+            statusCode: 400,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: 'Unexpected version format',
             }),
         });
         expect(console.error).toBeCalled();
