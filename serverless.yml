@@ -1,5 +1,7 @@
 # The `service` block is the name of the service
 service: abap-package-version-shield
+org: sbcgua
+app: abapversionshield
 
 # The `provider` block defines where your service will be deployed
 provider:
