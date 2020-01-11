@@ -13,3 +13,6 @@ GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-vers
 
 ### With APACK
 GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml
+
+### With custom domain
+GET https://shield.abap.space/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap

@@ -22,3 +22,4 @@ Example: https://img.shields.io/endpoint?url=https://{LAMBDA}.execute-api.eu-wes
 - `serverless deploy`
 - `serverless logs -f getAbapVersionShieldJson --stage dev`
 - `serverless info -f getAbapVersionShieldJson --stage dev` - url in particular
+- `sls create_domain`, `sls delete_domain`
