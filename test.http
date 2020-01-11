@@ -16,3 +16,11 @@ GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-vers
 
 ### With custom domain
 GET https://shield.abap.space/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap
+
+### with shileds.io
+
+GET https://img.shields.io/endpoint?url=https://u0zlg8upk8.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version
+
+### with shileds.io apack
+
+GET https://img.shields.io/endpoint?url=https://shield.abap.space/get-abap-version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml
