@@ -35,8 +35,8 @@ https.get.mockImplementation((url, handler) => {
 describe('test with path params', () => {
     test('should work with normal request', async () => {
         const event = {
-            resource: '/get-abap-version-shield-json/{sourcePath}',
-            path: '/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version',
+            resource: '/version-shield-json/{sourcePath}',
+            path: '/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version',
             pathParameters: {
                 sourcePath: 'github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version'
             },
@@ -69,8 +69,8 @@ describe('test with path params', () => {
 
     test('should fail with wrong request', async () => {
         const event = {
-            // resource: '/get-abap-version-shield-json/{sourcePath}',
-            // path: '/get-abap-version-shield-json/xxx',
+            // resource: '/version-shield-json/{sourcePath}',
+            // path: '/version-shield-json/xxx',
             pathParameters: {
                 sourcePath: 'xxx'
             },
@@ -97,8 +97,8 @@ describe('test with path params', () => {
 
     test('should fail with wrong version format', async () => {
         const event = {
-            resource: '/get-abap-version-shield-json/{sourcePath}',
-            path: '/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_incorrect.intf.abap/version',
+            resource: '/version-shield-json/{sourcePath}',
+            path: '/version-shield-json/github/sbcgua/mockup_loader/src/zif_incorrect.intf.abap/version',
             pathParameters: {
                 sourcePath: 'github/sbcgua/mockup_loader/src/zif_incorrect.intf.abap/version'
             },
@@ -127,8 +127,8 @@ describe('test with path params', () => {
 describe('test with apack', () => {
     test('should work with apack', async () => {
         const event = {
-            resource: '/get-abap-version-shield-json/{sourcePath}',
-            path: '/get-abap-version-shield-json/github/zzz/apack-test/.apack-manifest.xml',
+            resource: '/version-shield-json/{sourcePath}',
+            path: '/version-shield-json/github/zzz/apack-test/.apack-manifest.xml',
             pathParameters: {
                 sourcePath: 'github/zzz/apack-test/.apack-manifest.xml'
             },

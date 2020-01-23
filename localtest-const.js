@@ -4,8 +4,8 @@ const handler = require('./handler');
 
 (async function main() {
     const event = {
-        resource: '/get-abap-version-shield-json/{sourcePath}',
-        path: '/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version',
+        resource: '/version-shield-json/{sourcePath}',
+        path: '/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version',
         pathParameters: {
             sourcePath: 'github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version'
         },

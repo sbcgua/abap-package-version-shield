@@ -13,6 +13,7 @@ provider:
 package:
   exclude:
     - secrets
+    - docs/*
 
 # The `functions` block defines what code to deploy
 functions:
@@ -21,7 +22,7 @@ functions:
     memorySize: 128
     events:
       - http:
-          path: get-abap-version-shield-json/{sourcePath+}
+          path: version-shield-json/{sourcePath+}
           method: get
           cors: true
 

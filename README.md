@@ -11,7 +11,7 @@ There is an amazing service [shields.io](https://shields.io/) that produces gith
 The service is available at version.abap.space domain. In order to add a badge to your repository add the following line at the top of your root readme file.
 
 ```
-https://img.shields.io/endpoint?url=https://shield.abap.space/get-abap-version-shield-json/$TYPE/$OWNER/$REPO/$PATH/$CONSTANT_NAME
+https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/$TYPE/$OWNER/$REPO/$PATH/$CONSTANT_NAME
 ```
 
 where:
@@ -21,7 +21,7 @@ where:
 - $PATH = path to abap file with version constant
 - $CONSTANT_NAME = constant name to search version in (optional, "version" by default)
 
-For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version`](https://img.shields.io/endpoint?url=https://shield.abap.space/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version)
+For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version`](https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version)
 
 ![example](docs/code-example.png)
 

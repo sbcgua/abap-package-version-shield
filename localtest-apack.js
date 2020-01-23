@@ -4,8 +4,8 @@ const handler = require('./handler');
 
 (async function main() {
     const event = {
-        resource: '/get-abap-version-shield-json/{sourcePath}',
-        path: '/get-abap-version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml',
+        resource: '/version-shield-json/{sourcePath}',
+        path: '/version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml',
         pathParameters: {
             sourcePath: 'github/SAP-samples/abap-platform-jak/.apack-manifest.xml'
         },
