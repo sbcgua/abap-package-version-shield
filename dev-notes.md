@@ -4,6 +4,13 @@
 - https://stackify.com/aws-lambda-with-node-js-a-complete-getting-started-guide/
 - https://postman-echo.com/get?foo1=bar1
 
+### serverless domain name per stage
+
+- https://forum.serverless.com/t/custom-domain-for-different-stages/4539/4
+- https://github.com/amplify-education/serverless-domain-manager/issues/60
+- https://stackoverflow.com/questions/46956660/how-to-set-up-different-domains-based-on-stage-with-serverless-domain-manager-pl
+- http://www.piotrnowicki.com/2019/06/aws-serverless-stage-promotion/
+
 ## Deployment
 - `serverless config credentials --provider aws --key <your_access_key_id> --secret <your_access_key_secret>`
 - `serverless deploy`

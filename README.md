@@ -1,6 +1,6 @@
 # ABAP package version shield
 
-**ATTENTION: BETA VERSION, use with care**
+**ATTENTION: BETA VERSION, use with care, report issues pls!**
 
 ## Usage
 
