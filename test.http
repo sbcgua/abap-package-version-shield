@@ -1,26 +1,40 @@
+##############
+### DOMAIN
+##############
+
+### shield.abap.space (PROD)
+GET https://shield.abap.space/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap
+
+### dev.shield.abap.space
+GET https://dev.shield.abap.space/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap
+
+##############
+### shields.io
+##############
+
+### With shields.io
+
+GET https://img.shields.io/endpoint?url=https://u0zlg8upk8.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version
+
+### With shields.io apack-manifest
+
+GET https://img.shields.io/endpoint?url=https://shield.abap.space/get-abap-version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml
+
+
+##############
+### DEV PATH
+##############
+
 @hostPrefix = u0zlg8upk8
 
-### With Path
-
-### simple
+### Simple
 GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap
 
-### with attr
+### With attr
 GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version
 
-### wrong request
+### Wrong request
 GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/wrongstuff
 
 ### With APACK
 GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml
-
-### With custom domain
-GET https://shield.abap.space/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap
-
-### with shileds.io
-
-GET https://img.shields.io/endpoint?url=https://u0zlg8upk8.execute-api.eu-west-1.amazonaws.com/dev/get-abap-version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version
-
-### with shileds.io apack
-
-GET https://img.shields.io/endpoint?url=https://shield.abap.space/get-abap-version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml

@@ -8,6 +8,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   region: eu-west-1
+  stage: ${opt:stage, 'dev'}
 
 package:
   exclude:
@@ -28,8 +29,11 @@ plugins:
   - serverless-domain-manager
 
 custom:
+  stageDomainName:
+    dev: dev.shield.abap.space
+    prod: shield.abap.space
   customDomain:
-    domainName: shield.abap.space
+    domainName: ${self:custom.stageDomainName.${self:provider.stage}}
     certificateName: '*.abap.space'
     endpointType: 'regional'
     basePath: ''
