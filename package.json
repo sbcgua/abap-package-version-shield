@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint . lib",
-    "deploy": "bash ./bin/deploy-dev.sh",
+    "deploy-dev": "bash ./bin/deploy-dev.sh",
+    "deploy-prod": "bash ./bin/deploy-dev.sh",
     "logs": "serverless logs -f getAbapVersionShieldJson --stage dev -t"
   },
   "author": "Alexander Tsybulsky",
