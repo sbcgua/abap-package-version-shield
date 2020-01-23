@@ -1,12 +1,8 @@
 # ABAP package version shield
 
-**ATTENTION: BETA VERSION, use with care, report issues pls!**
-
-## Usage
-
 There is an amazing service [shields.io](https://shields.io/) that produces github status badges. In particular, it can retrieve shield configuration from another API. This piece of code implements such API endpoint for extracting abap package version.
 
-![shield sample](docs/shield-sample.svg)
+![shield sample](shield-sample.svg)
 
 The service is available at `shield.abap.space` domain. In order to add a badge to your repository add the following line at the top of your root readme file.
 
@@ -21,11 +17,14 @@ where:
 - $PATH = path to abap file with version constant
 - $CONSTANT_NAME = constant name to search version in (optional, "version" by default)
 
-For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version`](https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version)
+For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version`](https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version) for the following target file.
 
-![example](docs/code-example.png)
+![example](code-example.png)
 
 ### Notes
 
 - The version is supposed to be in semantic version format - `'X.Y.Z'` or `'vX.Y.Z'`.
 - if `$PATH` = `.apack-manifest.xml` the version is read directly from that file.
+
+
+*N.B. Please report bugs if found :)*
