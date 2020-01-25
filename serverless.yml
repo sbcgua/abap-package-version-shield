@@ -1,9 +1,7 @@
-# The `service` block is the name of the service
 service: abap-package-version-shield
 # org: sbcgua
 # app: abapversionshield
 
-# The `provider` block defines where your service will be deployed
 provider:
   name: aws
   runtime: nodejs12.x
@@ -15,7 +13,6 @@ package:
     - secrets
     - docs/*
 
-# The `functions` block defines what code to deploy
 functions:
   getAbapVersionShieldJson:
     handler: handler.getShieldJson
@@ -25,6 +22,21 @@ functions:
           path: version-shield-json/{sourcePath+}
           method: get
           cors: true
+      - http:
+          path: /
+          # cors: true
+          method: get
+          integration: mock
+          request:
+            template:
+              application/json: '{"statusCode": 301}'
+          response:
+            template: redirect
+            headers:
+              Location: "'https://sbcgua.github.io/abap-package-version-shield'"
+            statusCodes:
+              301:
+                pattern: ''
 
 plugins:
   - serverless-domain-manager
@@ -33,9 +45,12 @@ custom:
   stageDomainName:
     dev: dev.shield.abap.space
     prod: shield.abap.space
+  stageCertificateName:
+    dev: '*.shield.abap.space'
+    prod: '*.abap.space'
   customDomain:
     domainName: ${self:custom.stageDomainName.${self:provider.stage}}
-    certificateName: '*.abap.space'
+    certificateName: ${self:custom.stageCertificateName.${self:provider.stage}}
     endpointType: 'regional'
     basePath: ''
     stage: ${self:provider.stage}
