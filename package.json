@@ -15,7 +15,7 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "jest": "^24.9.0",
-    "serverless-domain-manager": "^3.3.0"
+    "serverless-domain-manager": "^3.3.1"
   },
   "dependencies": {
     "xml-parse": "^0.4.0"
