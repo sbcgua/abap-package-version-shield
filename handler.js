@@ -20,8 +20,7 @@ const {
     getVersionFromApack,
 } = require('./lib/apack');
 
-// eslint-disable-next-line no-unused-vars
-module.exports.getShieldJson = async (event, context, callback) => {
+module.exports.getShieldJson = async (event, context) => {
     try {
         // return buildResponse({ event, context });
         return await handleEvent(event, context);
@@ -30,6 +29,12 @@ module.exports.getShieldJson = async (event, context, callback) => {
         return buildErrorResponce(error.message, 400);
     }
 };
+
+module.exports.errorStub = async () => {
+    console.error('Unexpected call');
+    return buildErrorResponce('Unexpected call', 400);
+};
+
 
 // eslint-disable-next-line no-unused-vars
 async function handleEvent(event, context) {
