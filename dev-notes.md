@@ -19,3 +19,9 @@
 - `sls create_domain`, `sls delete_domain`
 - `bin/deploy-dev.sh`
 - `bin/deploy-prod.sh`
+
+## redirect
+- https://alestic.com/2015/11/amazon-api-gateway-aws-cli-redirect/
+- https://medium.com/@lakshmanLD/lambda-proxy-vs-lambda-integration-in-aws-api-gateway-3a9397af0e6d
+- https://github.com/jnupponen/apigw-redirect/blob/master/template.yaml
+- http://docs.yaybu.com/projects/touchdown/en/stable/tutorial/redirects_with_apigateway.html
