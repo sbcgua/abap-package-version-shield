@@ -36,6 +36,8 @@ For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/ver
 
 Shields.io allows to override some of parameters e.g. label and color - see more in [their documentation](https://shields.io/). For example: `https://img.shields.io/endpoint?url=...&label=version&color=red` to display the shield in red and with shorter "version" label instead of "abap package version".
 
+*N.B. Please report bugs if found :)*
+
 ## Badge constructor
 
 Interactive badge constructor is available at [this repository github page](https://sbcgua.github.io/abap-package-version-shield#badge-constructor)
