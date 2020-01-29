@@ -26,6 +26,9 @@ For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/ver
 - The version is supposed to be in semantic version format - `'X.Y.Z'` or `'vX.Y.Z'`.
 - if `$PATH` = `.apack-manifest.xml` the version is read directly from that file.
 
+### Badge customizing
+
+Shields.io allows to override some of parameters e.g. label and color - see more in [their documentation](https://shields.io/). For example: `https://img.shields.io/endpoint?url=...&label=version&color=red` to display the shield in red and with shorter "version" label instead of "abap package version".
 
 *N.B. Please report bugs if found :)*
 
