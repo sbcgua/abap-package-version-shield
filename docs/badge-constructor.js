@@ -16,6 +16,7 @@ function onSubmit() {
         if (!regex.test(input.value)) {
             input.classList.add('error-input');
             result.classList.add('error-result');
+            result.classList.remove('ok-result');
             result.innerText = msg;
             return;
         } else {

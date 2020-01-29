@@ -34,4 +34,4 @@ For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/ver
 
 ## Badge constructor
 
-Interactive badge constructor is available at [this repository github page](https://sbcgua.github.io/abap-package-version-shield/)
+Interactive badge constructor is available at [this repository github page](https://sbcgua.github.io/abap-package-version-shield#badge-constructor)
