@@ -31,3 +31,7 @@ For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/ver
 
 - The version is supposed to be in semantic version format - `'X.Y.Z'` or `'vX.Y.Z'`.
 - if `$PATH` = `.apack-manifest.xml` the version is read directly from that file.
+
+## Badge constructor
+
+Interactive badge constructor is available at [this repository github page](https://sbcgua.github.io/abap-package-version-shield/)

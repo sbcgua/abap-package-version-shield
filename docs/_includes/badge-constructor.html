@@ -1,0 +1,32 @@
+<style>
+    #constructorResult {
+        margin: 8px 0px;
+        padding: 2px 4px;
+        font-size: smaller;
+        font-family: monospace;
+    }
+    .error-input {
+        box-shadow: 0px 0px 2px 1px #e97d7d;
+        border-width: 0px;
+    }
+    .error-result {
+        background-color: #ffe1e1;
+        color: #c82121;
+
+    }
+    .ok-result {
+        background-color: #d4fbd4;
+        color: #2c6f2c;
+
+    }
+</style>
+<div id="constructor">
+    <form id="constructorForm">
+        <input type='text' name='repo_path' placeholder="Repo path: owner/repo">
+        <input type='text' name='file_path' placeholder="File path: src/zif...abap">
+        <input type='text' name='const_name' placeholder="Const name: version (optional)">
+        <input type="button" value="Build" id="constructorSubmit">
+    </form>
+    <div id="constructorResult"></div>
+</div>
+<script src="./badge-constructor.js"></script>

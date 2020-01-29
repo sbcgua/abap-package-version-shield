@@ -28,3 +28,9 @@ For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/ver
 
 
 *N.B. Please report bugs if found :)*
+
+## Badge constructor
+
+*beta, pls report issue if any!*
+
+{% include badge-constructor.html %}
