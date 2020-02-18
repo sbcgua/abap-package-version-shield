@@ -1,4 +1,5 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/sbcgua/abap-package-version-shield/badge.svg?targetFile=package.json)](https://snyk.io/test/github/sbcgua/abap-package-version-shield?targetFile=package.json)
+![Version](https://img.shields.io/github/v/tag/sbcgua/abap-package-version-shield.svg)
 
 # ABAP package version shield
 
