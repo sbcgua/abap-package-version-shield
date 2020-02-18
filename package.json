@@ -5,6 +5,7 @@
   "main": "playground.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "eslint . lib",
     "deploy-dev": "bash ./bin/deploy-dev.sh",
     "deploy-prod": "bash ./bin/deploy-dev.sh",
@@ -18,7 +19,6 @@
     "serverless-domain-manager": "^3.3.1"
   },
   "dependencies": {
-    "fast-xml-parser": "^3.16.0",
-    "xml-parse": "^0.4.0"
+    "fast-xml-parser": "^3.16.0"
   }
 }
