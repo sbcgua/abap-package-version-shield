@@ -19,7 +19,7 @@ GET https://img.shields.io/endpoint?url=https://u0zlg8upk8.execute-api.eu-west-1
 ### With shields.io apack-manifest
 
 GET https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml
-
+###
 GET https://dev.shield.abap.space/version-shield-json/github/mbtools/mbt-versions/.apack-manifest.xml/dependencies/github.com/mbtools/mbt-bc-cts-req
 
 ##############
