@@ -1,12 +1,13 @@
 const fetch = require('node-fetch');
 const pick = require('lodash.pick');
 
-const PREFIX = '';
-const HOST = 'shield.abap.space';
+const PREFIX = (process.env.E2E_DEV === '1') ? 'dev.' : '';
+const HOST = PREFIX + 'shield.abap.space';
 const functionName = 'version-shield-json';
 const versionRe = /^v\d{1,3}\.\d{1,3}(\.\d{1,3})?$/i;
+console.log('Host:', HOST);
 
-const getUrl = (params) => `https://${PREFIX}${HOST}/${functionName}/${params}`;
+const getUrl = (params) => `https://${HOST}/${functionName}/${params}`;
 
 async function validateExpectations(resp) {
     expect(resp.ok).toBeTruthy();
@@ -26,7 +27,7 @@ test('should process abap constant', async () => {
     await validateExpectations(resp);
 });
 
-test('should process abap constant', async () => {
+test('should process apack', async () => {
     const resp = await fetch(getUrl('github/SAP-samples/abap-platform-jak/.apack-manifest.xml'));
     await validateExpectations(resp);
 });
