@@ -18,6 +18,7 @@ const {
 const {
     APACK_FILENAME,
     getVersionFromApack,
+    getDependencyVersionFromApack,
 } = require('./lib/apack');
 
 module.exports.getShieldJson = async (event, context) => {
@@ -45,7 +46,9 @@ async function handleEvent(event, context) {
     const url = createUrlFromParams(validatedParams);
     const srcData = await fetchResource(url);
     let version = (validatedParams.file === APACK_FILENAME)
-        ? getVersionFromApack(srcData)
+        ? validatedParams.apackExtra === 'dependencies'
+            ? getDependencyVersionFromApack(srcData, validatedParams.apackExtraParam)
+            : getVersionFromApack(srcData)
         : parseSourceFile(srcData, validatedParams.attr);
 
     validateVersion(version);

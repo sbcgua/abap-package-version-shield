@@ -22,6 +22,14 @@ https.get.mockImplementation((url, handler) => {
         resMock.write(' <asx:values>');
         resMock.write('  <DATA>');
         resMock.write('   <VERSION>0.2</VERSION>');
+        resMock.write('   <DEPENDENCIES>');
+        resMock.write('    <item>');
+        resMock.write('     <GROUP_ID>sap.com</GROUP_ID>');
+        resMock.write('     <ARTIFACT_ID>abap-platform-XX</ARTIFACT_ID>');
+        resMock.write('     <VERSION>1.2.0</VERSION>');
+        resMock.write('     <GIT_URL>https://github.com/SAP/abap-platform-xx.git</GIT_URL>');
+        resMock.write('    </item>');
+        resMock.write('   </DEPENDENCIES>');
         resMock.write('  </DATA>');
         resMock.write(' </asx:values>');
         resMock.write('</asx:abap>');
@@ -69,8 +77,6 @@ describe('test with path params', () => {
 
     test('should fail with wrong request', async () => {
         const event = {
-            // resource: '/version-shield-json/{sourcePath}',
-            // path: '/version-shield-json/xxx',
             pathParameters: {
                 sourcePath: 'xxx'
             },
@@ -148,6 +154,40 @@ describe('test with apack', () => {
             },
             body: JSON.stringify({
                 message: 'v0.2',
+                schemaVersion: 1,
+                label: 'abap package version',
+                color: 'orange',
+            }),
+        });
+
+        expect(console.log).toHaveBeenNthCalledWith(1, 'Requested path:', event.path);
+        expect(console.log).toHaveBeenNthCalledWith(2, 'URL:', 'https://raw.githubusercontent.com/zzz/apack-test/master/.apack-manifest.xml');
+        expect(console.log).toHaveBeenNthCalledWith(3, 'fetch statusCode: 200');
+    });
+
+    test('should work with apack and dependencies', async () => {
+        const event = {
+            resource: '/version-shield-json/{sourcePath}',
+            path: '/version-shield-json/github/zzz/apack-test/.apack-manifest.xml',
+            pathParameters: {
+                sourcePath: 'github/zzz/apack-test/.apack-manifest.xml/dependencies/sap.com/abap-platform-xx'
+            },
+        };
+        const context = {};
+
+        global.console = {
+            log: jest.fn(),
+            error: jest.fn(),
+        };
+
+        await expect(handler.getShieldJson(event, context)).resolves.toEqual({
+            statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: 'v1.2.0',
                 schemaVersion: 1,
                 label: 'abap package version',
                 color: 'orange',
