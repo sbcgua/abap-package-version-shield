@@ -32,6 +32,7 @@ For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/ver
 
 - The version is supposed to be in semantic version format - `'X.Y.Z'` or `'vX.Y.Z'`.
 - if `$PATH` = `.apack-manifest.xml` the version is read directly from that file.
+- apack parsing also supports displaying dependency version (see [issue #1](https://github.com/sbcgua/abap-package-version-shield/issues/1)). `'...apack-manifest.xml/dependencies/<group_id>/<artifact_id>'`.
 
 ### Badge customizing
 

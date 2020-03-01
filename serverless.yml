@@ -11,7 +11,13 @@ provider:
 package:
   exclude:
     - secrets
-    - docs/*
+    - docs/**
+    - bin/**
+    - .github/**
+    - '*.md'
+    - localtest*
+    - '*.http'
+    - playground*
 
 functions:
   getAbapVersionShieldJson:

@@ -2,6 +2,9 @@
 node_modules
 jspm_packages
 
+# artifacts
+coverage
+
 # Serverless directories
 .serverless
 

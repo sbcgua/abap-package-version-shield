@@ -5,6 +5,9 @@
   "main": "playground.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:e2e": "jest -c jest.e2e.config.js",
+    "test:e2e-dev": "env E2E_DEV=1 jest -c jest.e2e.config.js",
     "lint": "eslint . lib",
     "deploy-dev": "bash ./bin/deploy-dev.sh",
     "deploy-prod": "bash ./bin/deploy-dev.sh",
@@ -15,9 +18,17 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "jest": "^24.9.0",
+    "node-fetch": "^2.6.0",
     "serverless-domain-manager": "^3.3.1"
   },
   "dependencies": {
-    "xml-parse": "^0.4.0"
+    "fast-xml-parser": "^3.16.0",
+    "lodash.pick": "^4.4.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "e2e"
+    ]
   }
 }
