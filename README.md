@@ -3,8 +3,6 @@
 
 # ABAP package version shield
 
-**ATTENTION: BETA VERSION, use with care, report issues pls!**
-
 ## Usage
 
 There is an amazing service [shields.io](https://shields.io/) that produces github status badges. In particular, it can retrieve shield configuration from another API. This piece of code implements such API endpoint for extracting abap package version.

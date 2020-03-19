@@ -1,0 +1,16 @@
+ABAP package version shield
+===========================
+
+Legend
+------
+* : fixed
+! : changed
++ : added
+- : removed
+
+v1.0.1, 2019-03-19
+------------------
++ read apack dependencies version (see issue #1 for reasons)
++ improve tests
+! use another XML parser
+! moved out of beta
