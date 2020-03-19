@@ -1,7 +1,11 @@
 const fetch = require('node-fetch');
 const pick = require('lodash.pick');
 
-const PREFIX = (process.env.E2E_DEV === '1') ? 'dev.' : '';
+const allowedTargets = new Set(['dev', 'qa']);
+const PREFIX = allowedTargets.has(process.env.E2E_TARGET)
+    ? `${process.env.E2E_TARGET}.`
+    : '';
+
 const HOST = PREFIX + 'shield.abap.space';
 const functionName = 'version-shield-json';
 const versionRe = /^v\d{1,3}\.\d{1,3}(\.\d{1,3})?$/i;
