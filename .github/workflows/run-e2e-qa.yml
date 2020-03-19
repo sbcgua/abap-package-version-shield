@@ -25,12 +25,13 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SLS_SECRET }}
         run: |
           npm run deploy:qa
+          sleep 10s
           echo "::set-output name=DEPLOYED::1"
       - name: Test
         run: |
           npm run test:e2e:qa
       - name: Shutdown
-        if: always()
+        if: always() && !cancelled() && steps.deploy.outputs.DEPLOYED == '1'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.SLS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SLS_SECRET }}
