@@ -14,3 +14,4 @@ v1.0.1, 2019-03-19
 + improve tests
 ! use another XML parser
 ! moved out of beta
+! better scripts
