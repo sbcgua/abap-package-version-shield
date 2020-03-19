@@ -1,0 +1,39 @@
+name: Run tests
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run-e2e-qa:
+    name: Run E2E QA test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - uses: actions/checkout@v2
+      - name: Preparations
+        run: |
+          npm install
+          npm run test
+      - name: Deploy
+        id: deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.SLS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SLS_SECRET }}
+        run: |
+          npm run deploy:qa
+          echo "::set-output name=DEPLOYED::1"
+      - name: Test
+        run: |
+          npm run test:e2e:qa
+      - name: Shutdown
+        if: always()
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.SLS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SLS_SECRET }}
+        run: |
+          echo ${{ steps.deploy.outputs.DEPLOYED }}
+          npm run shutdown:qa
