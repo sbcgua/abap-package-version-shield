@@ -7,18 +7,19 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:e2e": "jest -c jest.e2e.config.js",
-    "test:e2e-dev": "env E2E_DEV=1 jest -c jest.e2e.config.js",
+    "test:e2e:dev": "env E2E_DEV=1 jest -c jest.e2e.config.js",
     "lint": "eslint . lib",
-    "deploy-dev": "bash ./bin/deploy-dev.sh",
-    "deploy-prod": "bash ./bin/deploy-dev.sh",
+    "deploy:dev": "bash ./bin/deploy-dev.sh",
+    "deploy": "bash ./bin/deploy-dev.sh",
     "logs": "serverless logs -f getAbapVersionShieldJson --stage dev -t"
   },
   "author": "Alexander Tsybulsky",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^6.8.0",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "node-fetch": "^2.6.0",
+    "serverless": "^1.66.0",
     "serverless-domain-manager": "^3.3.1"
   },
   "dependencies": {
