@@ -2,8 +2,10 @@ name: Run tests
 
 on:
   push:
-    branches:
-      - master
+    branches-ignore:
+      - '**'
+    # branches:
+    #   - master
 
 jobs:
   run-e2e-qa:
@@ -36,5 +38,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.SLS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SLS_SECRET }}
         run: |
-          echo ${{ steps.deploy.outputs.DEPLOYED }}
           npm run shutdown:qa
