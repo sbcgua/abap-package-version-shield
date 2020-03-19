@@ -13,6 +13,7 @@ package:
     - secrets
     - docs/**
     - bin/**
+    - coverage/**
     - .github/**
     - '*.md'
     - localtest*
@@ -50,9 +51,11 @@ plugins:
 custom:
   stageDomainName:
     dev: dev.shield.abap.space
+    qa: qa.shield.abap.space
     prod: shield.abap.space
   stageCertificateName:
     dev: '*.shield.abap.space'
+    qa: '*.shield.abap.space'
     prod: '*.abap.space'
   customDomain:
     domainName: ${self:custom.stageDomainName.${self:provider.stage}}
