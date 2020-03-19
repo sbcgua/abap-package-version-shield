@@ -11,8 +11,11 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:e2e": "jest -c jest.e2e.config.js",
-    "test:e2e:dev": "env E2E_DEV=1 jest -c jest.e2e.config.js",
+    "test:e2e:dev": "env E2E_TARGET=dev jest -c jest.e2e.config.js",
+    "test:e2e:qa": "env E2E_TARGET=qa jest -c jest.e2e.config.js",
     "lint": "eslint . lib",
+    "deploy:qa": "bash ./bin/deploy-qa.sh",
+    "shutdown:qa": "bash ./bin/remove-qa.sh",
     "deploy:dev": "bash ./bin/deploy-dev.sh",
     "deploy": "bash ./bin/deploy-dev.sh",
     "logs": "serverless logs -f getAbapVersionShieldJson --stage dev -t"
