@@ -30,7 +30,7 @@
     "serverless-domain-manager": "^3.3.1"
   },
   "dependencies": {
-    "fast-xml-parser": "^3.17.4",
+    "fast-xml-parser": "^3.17.6",
     "lodash.pick": "^4.4.0"
   },
   "jest": {
