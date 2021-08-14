@@ -27,7 +27,7 @@ async function validateExpectations(resp) {
 }
 
 test('should process abap constant', async () => {
-    const resp = await fetch(getUrl('github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap'));
+    const resp = await fetch(getUrl('github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap'));
     await validateExpectations(resp);
 });
 

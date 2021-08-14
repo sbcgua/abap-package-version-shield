@@ -8,7 +8,7 @@ function onSubmit() {
 
     const validations = [
         [repoPath, /^\w+\/\w+$/, 'Repo path must be owner/reponame, e.g. "sbcgua/mockup_loader"'],
-        [filePath, /^[-_.,A-Za-z0-9]+(\/[-_.,A-Za-z0-9]+)*$/, 'Incorrect file path, e.g. "src/zif_mockup_loader_constants.intf.abap"'],
+        [filePath, /^[-_.,A-Za-z0-9]+(\/[-_.,A-Za-z0-9]+)*$/, 'Incorrect file path, e.g. "src/zif_mockup_loader.intf.abap"'],
         [constName, /^(\w+)?$/, 'Incorrect constant name, e.g. "version" (or empty)'],
     ];
 

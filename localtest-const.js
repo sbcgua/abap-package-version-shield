@@ -5,9 +5,9 @@ const handler = require('./handler');
 (async function main() {
     const event = {
         resource: '/version-shield-json/{sourcePath}',
-        path: '/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version',
+        path: '/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version',
         pathParameters: {
-            sourcePath: 'github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version'
+            sourcePath: 'github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version'
         },
     };
     const context = {
