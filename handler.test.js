@@ -21,7 +21,7 @@ https.get.mockImplementation((url, handler) => {
         resMock.write('<asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">');
         resMock.write(' <asx:values>');
         resMock.write('  <DATA>');
-        resMock.write('   <VERSION>0.2</VERSION>');
+        resMock.write('   <VERSION>0.2.0</VERSION>');
         resMock.write('   <DEPENDENCIES>');
         resMock.write('    <item>');
         resMock.write('     <GROUP_ID>sap.com</GROUP_ID>');
@@ -153,7 +153,7 @@ describe('test with apack', () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                message: 'v0.2',
+                message: 'v0.2.0',
                 schemaVersion: 1,
                 label: 'abap package version',
                 color: 'orange',
