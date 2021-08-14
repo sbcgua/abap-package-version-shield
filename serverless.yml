@@ -4,7 +4,7 @@ service: abap-package-version-shield
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   region: eu-west-1
   stage: ${opt:stage, 'dev'}
 
