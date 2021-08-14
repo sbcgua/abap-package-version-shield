@@ -9,16 +9,16 @@ provider:
   stage: ${opt:stage, 'dev'}
 
 package:
-  exclude:
-    - secrets
-    - docs/**
-    - bin/**
-    - coverage/**
-    - .github/**
-    - '*.md'
-    - localtest*
-    - '*.http'
-    - playground*
+  patterns:
+    - '!secrets'
+    - '!docs/**'
+    - '!bin/**'
+    - '!coverage/**'
+    - '!.github/**'
+    - '!*.md'
+    - '!*.http'
+    - '!localtest*'
+    - '!playground*'
 
 functions:
   getAbapVersionShieldJson:
