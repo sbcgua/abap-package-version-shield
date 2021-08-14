@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 
-const handler = require('./handler');
+const handler = require('../handler');
+
+// 2021-08: SAP-samples/abap-platform-jak has incorrect semver version (X.Y, must be X.Y.Z)
 
 (async function main() {
     const event = {
         resource: '/version-shield-json/{sourcePath}',
-        path: '/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version',
+        path: '/version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml',
         pathParameters: {
-            sourcePath: 'github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version'
+            sourcePath: 'github/SAP-samples/abap-platform-jak/.apack-manifest.xml'
         },
     };
     const context = {

@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
-const handler = require('./handler');
+const handler = require('../handler');
+
+// 2021-08: mbtools/mbt-versions is offline
 
 (async function main() {
     const event = {
