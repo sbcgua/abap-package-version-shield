@@ -17,15 +17,6 @@ package:
     - 'handler.js'
     - 'node_modules/**'
     - 'lib/**'
-    - '!secrets'
-    - '!docs/**'
-    - '!bin/**'
-    - '!coverage/**'
-    - '!.github/**'
-    - '!*.md'
-    - '!*.http'
-    - '!localtest*'
-    - '!playground*'
 
 functions:
   getAbapVersionShieldJson:
