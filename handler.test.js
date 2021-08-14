@@ -8,12 +8,12 @@ https.get.mockImplementation((url, handler) => {
     const resMock = new PassThrough();
     resMock.statusCode = 200;
     handler(resMock);
-    if (url === 'https://raw.githubusercontent.com/sbcgua/mockup_loader/master/src/zif_mockup_loader_constants.intf.abap') {
-        resMock.write('interface zif_mockup_loader_constants.');
+    if (url === 'https://raw.githubusercontent.com/sbcgua/mockup_loader/master/src/zif_mockup_loader.intf.abap') {
+        resMock.write('interface zif_mockup_loader.');
         resMock.write('  constants version type string value \'v2.1.5\'. "#EC NOTEXT');
         resMock.write('endinterface.');
     } else if (url === 'https://raw.githubusercontent.com/sbcgua/mockup_loader/master/src/zif_incorrect.intf.abap') {
-        resMock.write('interface zif_mockup_loader_constants.');
+        resMock.write('interface zif_mockup_loader.');
         resMock.write('  constants version type string value \'XYZ\'. "#EC NOTEXT');
         resMock.write('endinterface.');
     } else if (url === 'https://raw.githubusercontent.com/zzz/apack-test/master/.apack-manifest.xml') {
@@ -21,7 +21,7 @@ https.get.mockImplementation((url, handler) => {
         resMock.write('<asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">');
         resMock.write(' <asx:values>');
         resMock.write('  <DATA>');
-        resMock.write('   <VERSION>0.2</VERSION>');
+        resMock.write('   <VERSION>0.2.0</VERSION>');
         resMock.write('   <DEPENDENCIES>');
         resMock.write('    <item>');
         resMock.write('     <GROUP_ID>sap.com</GROUP_ID>');
@@ -44,9 +44,9 @@ describe('test with path params', () => {
     test('should work with normal request', async () => {
         const event = {
             resource: '/version-shield-json/{sourcePath}',
-            path: '/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version',
+            path: '/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version',
             pathParameters: {
-                sourcePath: 'github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version'
+                sourcePath: 'github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version'
             },
         };
         const context = {};
@@ -71,7 +71,7 @@ describe('test with path params', () => {
         });
 
         expect(console.log).toHaveBeenNthCalledWith(1, 'Requested path:', event.path);
-        expect(console.log).toHaveBeenNthCalledWith(2, 'URL:', 'https://raw.githubusercontent.com/sbcgua/mockup_loader/master/src/zif_mockup_loader_constants.intf.abap');
+        expect(console.log).toHaveBeenNthCalledWith(2, 'URL:', 'https://raw.githubusercontent.com/sbcgua/mockup_loader/master/src/zif_mockup_loader.intf.abap');
         expect(console.log).toHaveBeenNthCalledWith(3, 'fetch statusCode: 200');
     });
 
@@ -153,7 +153,7 @@ describe('test with apack', () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                message: 'v0.2',
+                message: 'v0.2.0',
                 schemaVersion: 1,
                 label: 'abap package version',
                 color: 'orange',

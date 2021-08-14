@@ -17,13 +17,13 @@ where:
 - $PATH = path to abap file with version constant
 - $CONSTANT_NAME = constant name to search version in (optional, "version" by default)
 
-For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version`](https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap/version) for the following target file.
+For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version`](https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version) for the following target file.
 
 ![example](code-example.png)
 
 ### Notes
 
-- The version is supposed to be in semantic version format - `'X.Y.Z'` or `'vX.Y.Z'`.
+- The version is supposed to be in [semantic version](https://semver.org/) format - e.g. `'X.Y.Z'` or `'vX.Y.Z'` or `'vX.Y.Z-beta'` - the version string is validated and a wrongly formatted one will not pass (e.g. `'X.Y'` is not valid)
 - if `$PATH` = `.apack-manifest.xml` the version is read directly from that file.
 
 ### Badge customizing

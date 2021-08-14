@@ -6,15 +6,18 @@ on:
       - '**'
     # branches:
     #   - master
+  # pull_request:
+  #   branches:
+  #     - master
 
 jobs:
   run-e2e-qa:
     name: Run E2E QA test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
+      - uses: actions/setup-node@v2
+        # with:
+        #   node-version: '12.x'
       - uses: actions/checkout@v2
       - name: Preparations
         run: |

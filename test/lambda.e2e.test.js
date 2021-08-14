@@ -27,11 +27,14 @@ async function validateExpectations(resp) {
 }
 
 test('should process abap constant', async () => {
-    const resp = await fetch(getUrl('github/sbcgua/mockup_loader/src/zif_mockup_loader_constants.intf.abap'));
+    const resp = await fetch(getUrl('github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap'));
     await validateExpectations(resp);
 });
 
-test('should process apack', async () => {
+test.skip('should process apack', async () => {
+    // 2021-08
+    // skip because abap-platform-jak sample does not use proper semver (X.Y is not valid, only X.Y.Z)
+    // and I didn't find proper stable example in the web, seems APACK does not took off really
     const resp = await fetch(getUrl('github/SAP-samples/abap-platform-jak/.apack-manifest.xml'));
     await validateExpectations(resp);
 });

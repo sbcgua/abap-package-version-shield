@@ -8,6 +8,13 @@ Legend
 + : added
 - : removed
 
+v1.0.2, 2021-08-??
+------------------
+! strictly follow semver.org version validation (e.g. 1.0 is not a valid version)
++ support version suffixes ("-pre", ...)
+* fix reference to real world example (mockup_loader)
+* move to node 14 in lambda and workflows
+
 v1.0.1, 2019-03-19
 ------------------
 + read apack dependencies version (see issue #1 for reasons)
