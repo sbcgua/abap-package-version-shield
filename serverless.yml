@@ -10,6 +10,11 @@ provider:
 
 package:
   patterns:
+    - 'package.json'
+    - 'package-lock.json'
+    - 'handler.js'
+    - 'node_modules/**'
+    - 'lib/**'
     - '!secrets'
     - '!docs/**'
     - '!bin/**'
