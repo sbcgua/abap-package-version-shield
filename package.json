@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/sbcgua/abap-package-version-shield.git"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Custom handler for shields.io to display abap package version",
   "main": "playground.js",
   "scripts": {
@@ -14,11 +14,9 @@
     "test:e2e:dev": "env E2E_TARGET=dev jest -c test/jest.e2e.config.js",
     "test:e2e:qa": "env E2E_TARGET=qa jest -c test/jest.e2e.config.js",
     "lint": "eslint . lib",
-    
     "deploy": "bash ./bin/deploy-dev.sh",
     "deploy:qa": "bash ./bin/deploy-qa.sh",
     "deploy:dev": "bash ./bin/deploy-dev.sh",
-    
     "shutdown:qa": "bash ./bin/remove-qa.sh",
     "shutdown:dev": "bash ./bin/remove-dev.sh",
     "logs": "serverless logs -f getAbapVersionShieldJson --stage dev -t"
