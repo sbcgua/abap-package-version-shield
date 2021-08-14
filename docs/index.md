@@ -23,7 +23,7 @@ For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/ver
 
 ### Notes
 
-- The version is supposed to be in semantic version format - `'X.Y.Z'` or `'vX.Y.Z'`.
+- The version is supposed to be in [semantic version](https://semver.org/) format - e.g. `'X.Y.Z'` or `'vX.Y.Z'` or `'vX.Y.Z-beta'` - the version string is validated and a wrongly formatted one will not pass (e.g. `'X.Y'` is not valid)
 - if `$PATH` = `.apack-manifest.xml` the version is read directly from that file.
 
 ### Badge customizing
