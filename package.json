@@ -14,7 +14,7 @@
     "test:e2e:dev": "env E2E_TARGET=dev jest -c test/jest.e2e.config.js",
     "test:e2e:qa": "env E2E_TARGET=qa jest -c test/jest.e2e.config.js",
     "lint": "eslint . lib",
-    "deploy": "bash ./bin/deploy-dev.sh",
+    "deploy:prod": "bash ./bin/deploy-prod.sh",
     "deploy:qa": "bash ./bin/deploy-qa.sh",
     "deploy:dev": "bash ./bin/deploy-dev.sh",
     "shutdown:qa": "bash ./bin/remove-qa.sh",
