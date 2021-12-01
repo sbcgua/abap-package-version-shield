@@ -28,7 +28,7 @@
     "jest": "^27.4.2",
     "node-fetch": "^3.0.0",
     "serverless": "^2.67.0",
-    "serverless-domain-manager": "^5.1.5"
+    "serverless-domain-manager": "^5.2.0"
   },
   "dependencies": {
     "fast-xml-parser": "^3.21.1",
