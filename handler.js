@@ -23,11 +23,10 @@ const {
 
 module.exports.getShieldJson = async (event, context) => {
     try {
-        // return buildResponse({ event, context });
         return await handleEvent(event, context);
     } catch (error) {
         console.error(error);
-        return buildErrorResponce(error.message, 400);
+        return buildErrorResponce(String(error), 400);
     }
 };
 

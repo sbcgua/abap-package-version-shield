@@ -95,7 +95,7 @@ describe('test with path params', () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                message: 'Owner not specified',
+                message: 'Error: Owner not specified',
             }),
         });
         expect(console.error).toBeCalled();
@@ -123,7 +123,7 @@ describe('test with path params', () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                message: 'Unexpected version format',
+                message: 'Error: Unexpected version format',
             }),
         });
         expect(console.error).toBeCalled();
