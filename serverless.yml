@@ -7,7 +7,6 @@ provider:
   runtime: nodejs14.x
   region: eu-west-1
   stage: ${opt:stage, 'dev'}
-  lambdaHashingVersion: '20201221'
 
 package:
   patterns:
