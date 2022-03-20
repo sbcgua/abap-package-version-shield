@@ -27,7 +27,7 @@
     "eslint": "^8.10.0",
     "jest": "^27.5.1",
     "node-fetch": "^3.2.0",
-    "serverless": "^2.70.0",
+    "serverless": "^3.7.9",
     "serverless-domain-manager": "^5.8.0"
   },
   "dependencies": {
