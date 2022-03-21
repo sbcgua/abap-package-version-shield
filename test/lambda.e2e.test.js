@@ -38,3 +38,11 @@ test.skip('should process apack', async () => {
     const resp = await fetch(getUrl('github/SAP-samples/abap-platform-jak/.apack-manifest.xml'));
     await validateExpectations(resp);
 });
+
+test('should process structured constant and namespaced filename', async () => {
+    // 2021-08
+    // skip because abap-platform-jak sample does not use proper semver (X.Y is not valid, only X.Y.Z)
+    // and I didn't find proper stable example in the web, seems APACK does not took off really
+    const resp = await fetch(getUrl('github/Marc-Bernard-Tools/MBT-Base/src/tools/%23mbtools%23cl_tool_bc.clas.abap'));
+    await validateExpectations(resp);
+});
