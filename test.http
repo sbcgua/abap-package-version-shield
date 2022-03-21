@@ -10,6 +10,9 @@ GET https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/sr
 ### dev.shield.abap.space
 GET https://dev.shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
 
+### [DEV url with name space
+GET https://dev.shield.abap.space/version-shield-json/github/Marc-Bernard-Tools/MBT-Base/src/tools/%23mbtools%23cl_tool_bc.clas.abap
+
 ##############
 ### shields.io
 ##############
