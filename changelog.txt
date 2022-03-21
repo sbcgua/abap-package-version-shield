@@ -8,6 +8,12 @@ Legend
 + : added
 - : removed
 
+v1.0.3, 2022-03-??
+------------------
++ better error handling in fetching files
++ better handling of structures constants with "begin of"
+* support namespace char in filenames (#117) e.g. .../%23XYZ%23object.abap
+
 v1.0.2, 2021-08-??
 ------------------
 ! strictly follow semver.org version validation (e.g. 1.0 is not a valid version)
