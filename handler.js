@@ -42,7 +42,7 @@ async function handleEvent(event, context) {
 
     const params = parsePathParams(event);
     const validatedParams = validateQueryParams(params);
-    const url = createUrlFromParams(validatedParams);
+    const url = createUrlFromParams('master', validatedParams);
     const srcData = await fetchResource(url);
     let version = (validatedParams.file === APACK_FILENAME)
         ? validatedParams.apackExtra === 'dependencies'
@@ -56,9 +56,9 @@ async function handleEvent(event, context) {
     return response;
 }
 
-function createUrlFromParams({type, owner, repo, file}) {
+function createUrlFromParams(branch, {type, owner, repo, file}) {
     if (type === 'github') {
-        const url = `https://raw.githubusercontent.com/${owner}/${repo}/master/${file}`;
+        const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${file}`;
         console.log('URL:', url);
         return url;
     } else {
