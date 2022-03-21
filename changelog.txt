@@ -8,6 +8,10 @@ Legend
 + : added
 - : removed
 
+Important dev notes
+-------------------
+- node-fetch bind to version @2 due to ESM only support in version 3
+
 v1.0.3, 2022-03-??
 ------------------
 + better error handling in fetching files
