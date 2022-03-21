@@ -31,6 +31,7 @@ For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/ver
 - The version is supposed to be in [semantic version](https://semver.org/) format - e.g. `'X.Y.Z'` or `'vX.Y.Z'` or `'vX.Y.Z-beta'` - the version string is validated and a wrongly formatted one will not pass (e.g. `'X.Y'` is not valid)
 - if `$PATH` = `.apack-manifest.xml` the version is read directly from that file.
 - apack parsing also supports displaying dependency version (see [issue #1](https://github.com/sbcgua/abap-package-version-shield/issues/1)). `'...apack-manifest.xml/dependencies/<group_id>/<artifact_id>'`.
+- namespaced filenames and structured constants (`begin of...`) are also supported
 
 ### Badge customizing
 
