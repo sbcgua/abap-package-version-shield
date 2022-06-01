@@ -24,7 +24,7 @@
   "author": "Alexander Tsybulsky",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^8.11.0",
+    "eslint": "^8.16.0",
     "jest": "^27.5.1",
     "node-fetch": "^2.6.7",
     "serverless": "^3.7.9",
