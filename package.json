@@ -25,7 +25,7 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.24.0",
-    "jest": "^29.1.1",
+    "jest": "^29.2.2",
     "node-fetch": "^2.6.7",
     "serverless": "^3.22.0",
     "serverless-domain-manager": "^6.1.0"
