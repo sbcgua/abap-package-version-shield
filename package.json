@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/sbcgua/abap-package-version-shield.git"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Custom handler for shields.io to display abap package version",
   "main": "playground.js",
   "scripts": {
