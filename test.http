@@ -8,10 +8,10 @@
 GET https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
 
 ### dev.shield.abap.space
-GET https://dev.shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
+GET https://dev-shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
 
 ### [DEV] url with name space
-GET https://dev.shield.abap.space/version-shield-json/github/Marc-Bernard-Tools/MBT-Base/src/tools/%23mbtools%23cl_tool_bc.clas.abap
+GET https://dev-shield.abap.space/version-shield-json/github/Marc-Bernard-Tools/MBT-Base/src/tools/%23mbtools%23cl_tool_bc.clas.abap
 
 ##############
 ### shields.io
@@ -23,7 +23,7 @@ GET https://img.shields.io/endpoint?url=https://u0zlg8upk8.execute-api.eu-west-1
 ### apack: With shields.io apack-manifest
 GET https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml
 ### apack: dependencies
-GET https://dev.shield.abap.space/version-shield-json/github/mbtools/mbt-versions/.apack-manifest.xml/dependencies/github.com/mbtools/mbt-bc-cts-req
+GET https://dev-shield.abap.space/version-shield-json/github/mbtools/mbt-versions/.apack-manifest.xml/dependencies/github.com/mbtools/mbt-bc-cts-req
 
 ##############
 ### DEV PATH

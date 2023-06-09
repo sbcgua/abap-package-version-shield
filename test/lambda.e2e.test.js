@@ -3,7 +3,7 @@ const pick = require('lodash.pick');
 
 const allowedTargets = new Set(['dev', 'qa']);
 const PREFIX = allowedTargets.has(process.env.E2E_TARGET)
-    ? `${process.env.E2E_TARGET}.`
+    ? `${process.env.E2E_TARGET}-`
     : '';
 
 const HOST = PREFIX + 'shield.abap.space';
@@ -39,7 +39,7 @@ test.skip('should process apack', async () => {
     await validateExpectations(resp);
 });
 
-test('should process structured constant and namespaced filename', async () => {
+test.skip('should process structured constant and namespaced filename', async () => {
     // 2021-08
     // skip because abap-platform-jak sample does not use proper semver (X.Y is not valid, only X.Y.Z)
     // and I didn't find proper stable example in the web, seems APACK does not took off really

@@ -4,7 +4,7 @@ service: abap-package-version-shield
 
 provider:
   name: aws
-  runtime: nodejs16.x
+  runtime: nodejs18.x
   region: eu-west-1
   stage: ${opt:stage, 'dev'}
 
@@ -47,12 +47,12 @@ plugins:
 
 custom:
   stageDomainName:
-    dev: dev.shield.abap.space
-    qa: qa.shield.abap.space
+    dev: dev-shield.abap.space
+    qa: qa-shield.abap.space
     prod: shield.abap.space
   stageCertificateName:
-    dev: '*.shield.abap.space'
-    qa: '*.shield.abap.space'
+    dev: '*.abap.space'
+    qa: '*.abap.space'
     prod: '*.abap.space'
   customDomain:
     domainName: ${self:custom.stageDomainName.${self:provider.stage}}
