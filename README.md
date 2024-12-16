@@ -3,6 +3,8 @@
 
 # ABAP package version shield
 
+**ANNOUNCEMENT**: Mid January 2025 the URL `shield.abap.space` will be changed to something else (will announce later) due to luck of funding for the domain name.
+
 ## Usage
 
 There is an amazing service [shields.io](https://shields.io/) that produces github status badges. In particular, it can retrieve shield configuration from another API. This piece of code implements such API endpoint for extracting abap package version.
