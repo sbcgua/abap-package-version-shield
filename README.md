@@ -3,7 +3,7 @@
 
 # ABAP package version shield
 
-**ANNOUNCEMENT**: Mid January 2025 the URL `shield.abap.space` will be changed to something else (will announce later) due to luck of funding for the domain name.
+**ANNOUNCEMENT**: Mid January 2025 the URL `shield.abap.space` became offline due to lack of funding for the domain name. I'm looking for ideas how to fund it properly (40-50 USD per year), please post to [the issue](https://github.com/sbcgua/abap-package-version-shield/issues/191) if you have ideas how to resolve this.
 
 ## Usage
 
