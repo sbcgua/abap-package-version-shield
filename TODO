@@ -3,6 +3,7 @@ Maintenance:
     ☐ add bundler ( `@vercel/ncc` ?)
     ☐ update serverless
     ☐ switch config to abappm.com (+ certificate)
+    ☐ add `version` or `about` endpoint (name, version, web-url)
 
 Update dependencies:
     ☐ The querystring API is considered Legacy. new code should use the URLSearchParams API instead
