@@ -4,7 +4,8 @@ service: abap-package-version-shield
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  # runtime: nodejs18.x
+  runtime: nodejs22.x
   region: eu-west-1
   stage: ${opt:stage, 'dev'}
 
@@ -44,6 +45,9 @@ functions:
 
 plugins:
   - serverless-domain-manager
+
+# shield.abappm.com
+# badge.abappm.com
 
 custom:
   stageDomainName:
