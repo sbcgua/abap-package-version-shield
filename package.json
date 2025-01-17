@@ -19,7 +19,8 @@
     "deploy:dev": "bash ./bin/deploy-dev.sh",
     "shutdown:qa": "bash ./bin/remove-qa.sh",
     "shutdown:dev": "bash ./bin/remove-dev.sh",
-    "logs": "serverless logs -f getAbapVersionShieldJson --stage dev -t"
+    "logs": "serverless logs -f getAbapVersionShieldJson --stage dev -t",
+    "info:prod": "serverless info -f getAbapVersionShieldJson --stage prod"
   },
   "author": "Alexander Tsybulsky",
   "license": "ISC",

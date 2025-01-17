@@ -23,7 +23,7 @@
 ## Useful
 - `serverless package` - check what will be in zip package (built in .serverless dir)
 
-## redirect
+## Redirect
 - https://alestic.com/2015/11/amazon-api-gateway-aws-cli-redirect/
 - https://medium.com/@lakshmanLD/lambda-proxy-vs-lambda-integration-in-aws-api-gateway-3a9397af0e6d
 - https://github.com/jnupponen/apigw-redirect/blob/master/template.yaml

@@ -4,7 +4,14 @@
 
 # used by "REST client" extention
 
-### shield.abap.space (PROD)
+@prodHostPrefix = ktoucvjm5f
+
+### Bare AWS [PROD]
+GET https://{{prodHostPrefix}}.execute-api.eu-west-1.amazonaws.com/prod/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
+
+https://shield.abappm.com/prod/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
+
+### shield.abap.space [PROD]
 GET https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
 
 ### dev.shield.abap.space
@@ -14,11 +21,18 @@ GET https://dev-shield.abap.space/version-shield-json/github/sbcgua/mockup_loade
 GET https://dev-shield.abap.space/version-shield-json/github/Marc-Bernard-Tools/MBT-Base/src/tools/%23mbtools%23cl_tool_bc.clas.abap
 
 ##############
+### shield.abappm.com
+##############
+
+### shield.abappm.com (PROD)
+GET https://shield.abappm.com/prod/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
+
+##############
 ### shields.io
 ##############
 
 ### With shields.io [PROD]
-GET https://img.shields.io/endpoint?url=https://u0zlg8upk8.execute-api.eu-west-1.amazonaws.com/dev/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version
+GET https://img.shields.io/endpoint?url=https://{{prodHostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version
 
 ### apack: With shields.io apack-manifest
 GET https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml
@@ -29,16 +43,16 @@ GET https://dev-shield.abap.space/version-shield-json/github/mbtools/mbt-version
 ### DEV PATH
 ##############
 
-@hostPrefix = 0wmeebl6jk
+@devHostPrefix = 0wmeebl6jk
 
 ### Simple
-GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
+GET https://{{devHostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
 
 ### With attr
-GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version
+GET https://{{devHostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version
 
 ### Wrong request
-GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/version-shield-json/wrongstuff
+GET https://{{devHostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/version-shield-json/wrongstuff
 
 ### With APACK
-GET https://{{hostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml
+GET https://{{devHostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml
