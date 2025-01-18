@@ -7,7 +7,7 @@ const normalizeVersion = (version) => (/^'\S+'$/.test(version))
     ? version.slice(1,-1)
     : version;
 
-function parseSourceFile(fileData, attrName) {
+export function parseSourceFile(fileData, attrName) {
     const constantValuePattern = `${attrName}\\s+(type\\s+\\S+\\s+)?value\\s+'(?<attrValue>[^']+)'`;
     const reConstValue = new RegExp(constantValuePattern, 'i');
     const reFullConst = new RegExp(`constants:?\\s+${constantValuePattern}`, 'i');
@@ -66,14 +66,9 @@ function parseSourceFile(fileData, attrName) {
     throw Error(`Could not find attr ${attrName} in the file`);
 }
 
-function validateVersion(version) {
+export function validateVersion(version) {
     // Based on official semver spec
     // https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string
     const versionRe = /^(v|V)?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;
     if (!versionRe.test(version)) throw Error('Unexpected version format');
 }
-
-module.exports = {
-    validateVersion,
-    parseSourceFile,
-};

@@ -1,8 +1,9 @@
-const {
+import { expect, test } from 'vitest';
+import {
     enumify,
     buildResponse,
     xmlGetChildrenOf,
-} = require('./utils');
+} from './utils.js';
 
 test('should enumify', () => {
     expect(enumify(['A','B','C'])).toEqual({
