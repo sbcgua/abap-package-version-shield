@@ -1,7 +1,8 @@
-const {
+import { describe, expect, test } from 'vitest';
+import {
     parsePathParams,
     validateQueryParams,
-} = require('./params');
+} from './params.js';
 
 describe('regular Validator tests', () => {
     test('should validate correct params', () => {

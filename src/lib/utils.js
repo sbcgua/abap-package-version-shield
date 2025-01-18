@@ -1,8 +1,7 @@
-'use strict';
+import https from 'https';
 
-const https = require('https');
-
-function fetchResource(url) {
+export function fetchResource(url) {
+    // TODO refactor to fetch?
     return new Promise((resolve, reject) => {
         let buf = Buffer.from([]);
         const request = https.get(url, res => {
@@ -25,9 +24,9 @@ function fetchResource(url) {
     });
 }
 
-const enumify = list => Object.freeze(list.reduce((prev, i, index) => Object.assign(prev, { [i]: index }), {}));
+export const enumify = list => Object.freeze(list.reduce((prev, i, index) => Object.assign(prev, { [i]: index }), {}));
 
-function buildResponse(body, code = 200) {
+export function buildResponse(body, code = 200) {
     const response = {
         statusCode: code,
         headers: {
@@ -39,7 +38,7 @@ function buildResponse(body, code = 200) {
     return response;
 }
 
-function xmlGetChildrenOf(xml, path) {
+export function xmlGetChildrenOf(xml, path) {
     const segments = path.split('/').filter(i => !!i);
     if (segments.length === 0) throw Error('Unexpected xml drilldown path');
     for (const seg of segments) {
@@ -48,10 +47,3 @@ function xmlGetChildrenOf(xml, path) {
     }
     return xml;
 }
-
-module.exports = {
-    xmlGetChildrenOf,
-    enumify,
-    fetchResource,
-    buildResponse,
-};
