@@ -14,7 +14,8 @@
   "scripts": {
     "test": "vitest",
     "test:watch": "vitest watch",
-    "test:e2e": "jest -c test/jest.e2e.config.js",
+    "test:e2e": "env E2E_TARGET=dev vitest run",
+    "test:e2e_old": "jest -c test/jest.e2e.config.js",
     "test:e2e:dev": "env E2E_TARGET=dev jest -c test/jest.e2e.config.js",
     "test:e2e:qa": "env E2E_TARGET=qa jest -c test/jest.e2e.config.js",
     "lint": "eslint",
@@ -28,6 +29,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^22.10.7",
     "@vercel/ncc": "^0.38.3",
     "eslint": "^9.18.0",
     "globals": "^15.14.0",

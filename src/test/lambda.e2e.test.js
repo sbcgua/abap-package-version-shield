@@ -1,14 +1,21 @@
-const fetch = require('node-fetch');
-const pick = require('lodash.pick');
+import { expect, test } from 'vitest';
+import { pick } from 'lodash-es';
 
-const allowedTargets = new Set(['dev', 'qa']);
-const PREFIX = allowedTargets.has(process.env.E2E_TARGET)
-    ? `${process.env.E2E_TARGET}-`
+const TARGET = process.env.E2E_TARGET;
+const allowedTargets = new Set(['dev', 'qa', 'prod']);
+if (!allowedTargets.has(TARGET)) throw Error(`Unexpected E2E_TARGET [${TARGET}]`);
+
+const PREFIX = allowedTargets.has(TARGET)
+    ? `${TARGET}-`
     : '';
 
-const HOST = PREFIX + 'shield.abap.space';
+// const HOST = PREFIX + 'shield.abap.space';
+const HOST = 'abap-version-shield.sbcg.com.ua'; // PROD
+// TODO dev, maybe remove qa
+
 const functionName = 'version-shield-json';
 const versionRe = /^v\d{1,3}\.\d{1,3}(\.\d{1,3})?$/i;
+console.log('Target:', TARGET);
 console.log('Host:', HOST);
 
 const getUrl = (params) => `https://${HOST}/${functionName}/${params}`;
