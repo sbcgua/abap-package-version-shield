@@ -1,6 +1,7 @@
 import { vi, describe, expect, test } from 'vitest';
 import { getShieldJson } from './handler.js';
 
+// eslint-disable-next-line no-unused-vars
 const testLog = console.log; // for debug outputs
 
 import { PassThrough } from 'stream';
@@ -106,7 +107,7 @@ describe('test with path params', () => {
             }),
         });
         expect(console.error).toBeCalled();
-        testLog(console.log.mock.calls);
+        // testLog(console.log.mock.calls);
     });
 
     test('should fail with wrong version format', async () => {
