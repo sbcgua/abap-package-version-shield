@@ -4,6 +4,8 @@ jspm_packages
 
 # artifacts
 coverage
+dist
+build
 
 # Serverless directories
 .serverless
