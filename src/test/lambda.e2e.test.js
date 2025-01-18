@@ -5,9 +5,9 @@ const TARGET = process.env.E2E_TARGET;
 const allowedTargets = new Set(['dev', 'qa', 'prod']);
 if (!allowedTargets.has(TARGET)) throw Error(`Unexpected E2E_TARGET [${TARGET}]`);
 
-const PREFIX = allowedTargets.has(TARGET)
-    ? `${TARGET}-`
-    : '';
+// const PREFIX = allowedTargets.has(TARGET)
+//     ? `${TARGET}-`
+//     : '';
 
 // const HOST = PREFIX + 'shield.abap.space';
 const HOST = 'abap-version-shield.sbcg.com.ua'; // PROD
