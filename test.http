@@ -9,35 +9,18 @@
 ### Bare AWS [PROD]
 GET https://{{prodHostPrefix}}.execute-api.eu-west-1.amazonaws.com/prod/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
 
-https://shield.abappm.com/prod/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
+### abap-version-shield.sbcg.com.ua [PROD]
+GET https://abap-version-shield.sbcg.com.ua/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
 
-### shield.abap.space [PROD]
-GET https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
-
-### dev.shield.abap.space
-GET https://dev-shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
-
-### [DEV] url with name space
-GET https://dev-shield.abap.space/version-shield-json/github/Marc-Bernard-Tools/MBT-Base/src/tools/%23mbtools%23cl_tool_bc.clas.abap
-
-##############
-### shield.abappm.com
-##############
-
-### shield.abappm.com (PROD)
-GET https://shield.abappm.com/prod/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
+### short version
+GET https://abap-version-shield.sbcg.com.ua/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
 
 ##############
 ### shields.io
 ##############
 
 ### With shields.io [PROD]
-GET https://img.shields.io/endpoint?url=https://{{prodHostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version
-
-### apack: With shields.io apack-manifest
-GET https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml
-### apack: dependencies
-GET https://dev-shield.abap.space/version-shield-json/github/mbtools/mbt-versions/.apack-manifest.xml/dependencies/github.com/mbtools/mbt-bc-cts-req
+GET https://img.shields.io/endpoint?url=https://{{prodHostPrefix}}.execute-api.eu-west-1.amazonaws.com/prod/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version
 
 ##############
 ### DEV PATH
@@ -56,3 +39,21 @@ GET https://{{devHostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/version-sh
 
 ### With APACK
 GET https://{{devHostPrefix}}.execute-api.eu-west-1.amazonaws.com/dev/version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml
+
+##############
+### OUTDATED
+##############
+
+### shield.abap.space [PROD]
+GET https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
+
+### dev.shield.abap.space
+GET https://dev-shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap
+
+### [DEV] url with name space
+GET https://dev-shield.abap.space/version-shield-json/github/Marc-Bernard-Tools/MBT-Base/src/tools/%23mbtools%23cl_tool_bc.clas.abap
+
+### apack: With shields.io apack-manifest
+GET https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/SAP-samples/abap-platform-jak/.apack-manifest.xml
+### apack: dependencies
+GET https://dev-shield.abap.space/version-shield-json/github/mbtools/mbt-versions/.apack-manifest.xml/dependencies/github.com/mbtools/mbt-bc-cts-req
