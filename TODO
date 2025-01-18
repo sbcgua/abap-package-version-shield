@@ -1,6 +1,6 @@
 Maintenance:
     ☐ switch to `nodejs22.x`
-    ☐ add bundler ( `@vercel/ncc` ?)
+    ☐ add bundler ( `@vercel/ncc` ? or `vite`)
     ☐ update serverless
     ☐ switch config to abap-version-shield.sbcg.com.ua (+ certificate)
     ☐ add `version` or `about` endpoint (name, version, web-url)
@@ -11,5 +11,5 @@ Update dependencies:
 
 Updates:
     ☐ Upgrade to esm
-    ☐ Maybe switch to TS + esbuild + vitest
+    ☐ Maybe switch to TS + vite (or esbuild) + vitest
     ☐ remove root path (version-shield-json)
