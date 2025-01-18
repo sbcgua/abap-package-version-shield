@@ -14,10 +14,9 @@
   "scripts": {
     "test": "vitest",
     "test:watch": "vitest watch",
-    "test:e2e": "env E2E_TARGET=dev vitest run",
-    "test:e2e_old": "jest -c test/jest.e2e.config.js",
-    "test:e2e:dev": "env E2E_TARGET=dev jest -c test/jest.e2e.config.js",
-    "test:e2e:qa": "env E2E_TARGET=qa jest -c test/jest.e2e.config.js",
+    "test:e2e": "env E2E_TARGET=prod vitest run",
+    "test:e2e:dev": "env E2E_TARGET=dev vitest run",
+    "test:e2e:qa": "env E2E_TARGET=qa vitest run",
     "lint": "eslint",
     "deploy:prod": "bash ./bin/deploy-prod.sh",
     "deploy:qa": "bash ./bin/deploy-qa.sh",
