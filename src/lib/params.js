@@ -1,6 +1,6 @@
 import { enumify } from './utils.js';
 import { APACK_FILENAME } from './apack.js';
-import { pick } from 'lodash-es';
+import pick from 'lodash-es/pick.js'; // better for tree shaking?
 
 function unescape(str) {
     return str.replace(/%23/g, '#'); // namespace delimiter

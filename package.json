@@ -12,6 +12,8 @@
   "type": "module",
   "exports": "./src/handler.js",
   "scripts": {
+    "build-ncc": "ncc build src/handler.js -o dist",
+    "build-esuild": "esbuild src/handler.js --bundle --platform=node --format=esm --tree-shaking=true --outfile=dist/out.js",
     "test": "vitest",
     "test:watch": "vitest watch",
     "test:e2e": "env E2E_TARGET=prod vitest run",
@@ -31,6 +33,7 @@
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.10.7",
     "@vercel/ncc": "^0.38.3",
+    "esbuild": "^0.24.2",
     "eslint": "^9.18.0",
     "globals": "^15.14.0",
     "serverless": "^4.4.19",
