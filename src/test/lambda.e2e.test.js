@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { pick } from 'lodash-es';
+import pick from 'lodash-es/pick.js';
 
 const TARGET = process.env.E2E_TARGET;
 const allowedTargets = new Set(['dev', 'qa', 'prod']);
