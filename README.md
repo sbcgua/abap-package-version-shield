@@ -1,9 +1,12 @@
+<!-- markdownlint-disable MD041 -->
 [![Known Vulnerabilities](https://snyk.io/test/github/sbcgua/abap-package-version-shield/badge.svg?targetFile=package.json)](https://snyk.io/test/github/sbcgua/abap-package-version-shield?targetFile=package.json)
 ![Version](https://img.shields.io/github/v/tag/sbcgua/abap-package-version-shield.svg)
 
 # ABAP package version shield
 
-**ANNOUNCEMENT**: Mid January 2025 the URL `shield.abap.space` became offline due to lack of funding for the domain name. I'm looking for ideas how to fund it properly (40-50 USD per year), please post to [the issue](https://github.com/sbcgua/abap-package-version-shield/issues/191) if you have ideas how to resolve this.
+**CHANGE OF SERVICE URL**: Mid January 2025 the original URL `shield.abap.space` became offline due to lack of funding for the domain name. I'm looking for ideas how to fund it properly (40-50 USD per year), please post to [the issue](https://github.com/sbcgua/abap-package-version-shield/issues/191) if you have ideas how to resolve this.
+
+Currently the service is available at new url `abap-version-shield.sbcg.com.ua` (see below) and also a mirror at [tools.abappm.com](https://github.com/abapPM/tools.abappm.com/blob/main/README.md#abap-package-version-badge).
 
 ## Usage
 
@@ -11,20 +14,21 @@ There is an amazing service [shields.io](https://shields.io/) that produces gith
 
 ![shield sample](docs/shield-sample.svg)
 
-The service is available at `shield.abap.space` domain. In order to add a badge to your repository add the following line at the top of your root readme file.
+The service is available at `abap-version-shield.sbcg.com.ua` domain. In order to add a badge to your repository add the following line at the top of your root readme file.
 
-```
-![abap package version](https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/$TYPE/$OWNER/$REPO/$PATH/$CONSTANT_NAME)
+```text
+![abap package version](https://img.shields.io/endpoint?url=https://abap-version-shield.sbcg.com.ua/version-shield-json/$TYPE/$OWNER/$REPO/$PATH/$CONSTANT_NAME)
 ```
 
 where:
+
 - $TYPE = 'github' (only this for now)
 - $OWNER = your github user name
 - $REPO = you repo name
 - $PATH = path to abap file with version constant
 - $CONSTANT_NAME = constant name to search version in (optional, "version" by default)
 
-For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version`](https://img.shields.io/endpoint?url=https://shield.abap.space/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version)
+For example: [`https://img.shields.io/endpoint?url=https://abap-version-shield.sbcg.com.ua/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version`](https://img.shields.io/endpoint?url=https://abap-version-shield.sbcg.com.ua/version-shield-json/github/sbcgua/mockup_loader/src/zif_mockup_loader.intf.abap/version)
 
 ![example](docs/code-example.png)
 
@@ -38,8 +42,6 @@ For example: [`https://img.shields.io/endpoint?url=https://shield.abap.space/ver
 ### Badge customizing
 
 Shields.io allows to override some of parameters e.g. label and color - see more in [their documentation](https://shields.io/). For example: `https://img.shields.io/endpoint?url=...&label=version&color=red` to display the shield in red and with shorter "version" label instead of "abap package version".
-
-*N.B. Please report bugs if found :)*
 
 ## Badge constructor
 
