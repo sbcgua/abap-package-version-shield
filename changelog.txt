@@ -8,9 +8,13 @@ Legend
 + : added
 - : removed
 
-Important dev notes
--------------------
-- node-fetch bind to version @2 due to ESM only support in version 3
+v1.1.0, 2025-01-??
+------------------
+! move to abap-version-shield.sbcg.com.ua domain
+! migrate to ESM
+! migrate to vitest
+! upgrade all packages
+! remove version-shield-json prefix
 
 v1.0.3, 2022-03-21
 ------------------

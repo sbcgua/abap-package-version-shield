@@ -1,14 +1,12 @@
-const {
-    enumify,
-} = require('./utils');
-const { APACK_FILENAME } = require('./apack');
-const pick = require('lodash.pick');
+import { enumify } from './utils.js';
+import { APACK_FILENAME } from './apack.js';
+import pick from 'lodash-es/pick.js'; // better for tree shaking?
 
 function unescape(str) {
     return str.replace(/%23/g, '#'); // namespace delimiter
 }
 
-function parsePathParams({pathParameters}) {
+export function parsePathParams({pathParameters}) {
     if (!pathParameters) throw Error('Unexpected path');
     if (!pathParameters.sourcePath) throw Error('Unexpected source path');
     const segments = pathParameters.sourcePath.split('/').filter(s => s !== '');
@@ -21,35 +19,35 @@ function parsePathParams({pathParameters}) {
     for (const seg of segments) {
         const appendSeg = (param) => param ? (param + '/' + seg) : seg;
         switch (expected) {
-        case STATES.TYPE:
-            params.type = seg;
-            expected++;
-            break;
-        case STATES.OWNER:
-            params.owner = seg;
-            expected++;
-            break;
-        case STATES.REPO:
-            params.repo = seg;
-            expected++;
-            break;
-        case STATES.FILE:
-            params.file = appendSeg(params.file);
-            if (/\.abap$/i.test(seg) || seg === APACK_FILENAME) expected++;
-            break;
-        case STATES.ATTR:
-            if (params.file === APACK_FILENAME) {
-                if (!params.apackExtra) params.apackExtra = seg;
-                else params.apackExtraParam = appendSeg(params.apackExtraParam);
-            } else {
-                params.attr = seg;
+            case STATES.TYPE:
+                params.type = seg;
                 expected++;
-            }
-            break;
-        case STATES.END:
-            throw Error('Unexpect path segment');
-        default:
-            throw Error('Unexpected parsing state');
+                break;
+            case STATES.OWNER:
+                params.owner = seg;
+                expected++;
+                break;
+            case STATES.REPO:
+                params.repo = seg;
+                expected++;
+                break;
+            case STATES.FILE:
+                params.file = appendSeg(params.file);
+                if (/\.abap$/i.test(seg) || seg === APACK_FILENAME) expected++;
+                break;
+            case STATES.ATTR:
+                if (params.file === APACK_FILENAME) {
+                    if (!params.apackExtra) params.apackExtra = seg;
+                    else params.apackExtraParam = appendSeg(params.apackExtraParam);
+                } else {
+                    params.attr = seg;
+                    expected++;
+                }
+                break;
+            case STATES.END:
+                throw Error('Unexpect path segment');
+            default:
+                throw Error('Unexpected parsing state');
         }
     }
     return params;
@@ -61,7 +59,7 @@ function applyDefaults(params) {
     return final;
 }
 
-function validateQueryParams(params) {
+export function validateQueryParams(params) {
     if (!params.type) throw Error('Repository type not specified'); // 400 bad request
     if (!params.owner) throw Error('Owner not specified');
     if (!params.repo) throw Error('Repository name not specified');
@@ -93,8 +91,3 @@ function validateQueryParams(params) {
 
     return applyDefaults(pick(params, allAttrs));
 }
-
-module.exports = {
-    parsePathParams,
-    validateQueryParams,
-};

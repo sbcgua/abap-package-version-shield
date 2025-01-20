@@ -1,0 +1,20 @@
+Maintenance:
+    ☐ switch to `nodejs22.x`
+    ☐ add bundler ( `@vercel/ncc` ? or `vite` or `esbuild` inside serverless)
+    ☐ update serverless
+    ☐ switch config to abap-version-shield.sbcg.com.ua (+ certificate)
+    ☐ add `version` or `about` endpoint (name, version, web-url)
+
+Update dependencies:
+    ✘ The querystring API is considered Legacy. new code should use the URLSearchParams API instead @cancelled(25-01-18 20:23)
+    ✘ Upgrade to v7.0.2+ of superagent @cancelled(25-01-18 20:23)
+
+Updates:
+    ✔ Upgrade to esm @done(25-01-18 20:22)
+    ✔ Switch to vitest @done(25-01-18 20:22)
+    ☐ Maybe switch to TS + vite (or esbuild)
+    ☐ remove root path (version-shield-json)
+    ☐ But keep version-shield-json as a redirect
+
+Stopped at 25-01-18:
+    - trying to node_modules/.bin/sls package -> require IAM rights changes ... review sls docs

@@ -1,7 +1,8 @@
-const {
+import { expect, test } from 'vitest';
+import {
     getVersionFromApack,
     getDependencyVersionFromApack,
-} = require('./apack');
+} from './apack';
 
 const XML_SAMPLE = `
 <?xml version="1.0" encoding="utf-8"?>

@@ -1,43 +1,47 @@
 {
   "name": "abap-package-version-shield",
+  "version": "1.0.4",
+  "description": "Custom handler for shields.io to display abap package version",
+  "author": "Alexander Tsybulsky",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/sbcgua/abap-package-version-shield.git"
   },
-  "version": "1.0.4",
-  "description": "Custom handler for shields.io to display abap package version",
-  "main": "playground.js",
+  "homepage": "https://sbcgua.github.io/abap-package-version-shield",
+  "type": "module",
+  "exports": "./src/handler.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:e2e": "jest -c test/jest.e2e.config.js",
-    "test:e2e:dev": "env E2E_TARGET=dev jest -c test/jest.e2e.config.js",
-    "test:e2e:qa": "env E2E_TARGET=qa jest -c test/jest.e2e.config.js",
-    "lint": "eslint . lib",
+    "build-ncc": "ncc build src/handler.js -o dist",
+    "build-esuild": "esbuild src/handler.js --bundle --platform=node --format=esm --tree-shaking=true --outfile=dist/out.js",
+    "test": "vitest",
+    "test:watch": "vitest watch",
+    "test:e2e": "env E2E_TARGET=prod vitest run",
+    "test:e2e:dev": "env E2E_TARGET=dev vitest run",
+    "test:e2e:qa": "env E2E_TARGET=qa vitest run",
+    "lint": "eslint",
     "deploy:prod": "bash ./bin/deploy-prod.sh",
     "deploy:qa": "bash ./bin/deploy-qa.sh",
     "deploy:dev": "bash ./bin/deploy-dev.sh",
     "shutdown:qa": "bash ./bin/remove-qa.sh",
     "shutdown:dev": "bash ./bin/remove-dev.sh",
-    "logs": "serverless logs -f getAbapVersionShieldJson --stage dev -t"
+    "logs": "serverless logs -f getAbapVersionShieldJson --stage dev -t",
+    "info:prod": "serverless info -f getAbapVersionShieldJson --stage prod"
   },
-  "author": "Alexander Tsybulsky",
-  "license": "ISC",
   "devDependencies": {
-    "eslint": "^8.24.0",
-    "jest": "^29.1.1",
-    "node-fetch": "^2.6.7",
-    "serverless": "^3.22.0",
-    "serverless-domain-manager": "^6.1.0"
+    "@eslint/js": "^9.18.0",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^22.10.7",
+    "@vercel/ncc": "^0.38.3",
+    "esbuild": "^0.24.2",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0",
+    "serverless": "^4.4.19",
+    "serverless-domain-manager": "^8.0.0",
+    "vitest": "^3.0.2"
   },
   "dependencies": {
-    "fast-xml-parser": "^4.2.5",
-    "lodash.pick": "^4.4.0"
-  },
-  "jest": {
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "e2e"
-    ]
+    "fast-xml-parser": "^4.5.1",
+    "lodash-es": "^4.17.21"
   }
 }
