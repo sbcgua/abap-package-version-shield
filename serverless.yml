@@ -1,6 +1,17 @@
 service: abap-package-version-shield
-# org: sbcgua
-# app: abapversionshield
+org: sbcgua
+app: abapversionshield
+
+# stages:
+#   default:
+#     params:
+#       key1: devValue
+#   prod:
+#     params:
+#       key1: prodValue
+
+build:
+  bandle: true
 
 provider:
   name: aws
@@ -9,14 +20,14 @@ provider:
   region: eu-west-1
   stage: ${opt:stage, 'dev'}
 
-package:
-  patterns:
-    - '!**'
-    - 'package.json'
-    - 'package-lock.json'
-    - 'handler.js'
-    - 'node_modules/**'
-    - 'lib/**'
+# package:
+#   patterns:
+#     - '!**'
+#     - 'package.json'
+#     - 'package-lock.json'
+#     # - 'handler.js'
+#     # - 'node_modules/**'
+#     - 'src/**'
 
 functions:
   getAbapVersionShieldJson:
