@@ -6,7 +6,7 @@
 
 **CHANGE OF SERVICE URL**: Mid January 2025 the original URL `shield.abap.space` became offline due to lack of funding for the domain name. I'm looking for ideas how to fund it properly (40-50 USD per year), please post to [the issue](https://github.com/sbcgua/abap-package-version-shield/issues/191) if you have ideas how to resolve this.
 
-Currently the service is available at new url `abap-version-shield.sbcg.com.ua` (see below) and also a mirror at [tools.abappm.com](https://github.com/abapPM/tools.abappm.com/blob/main/README.md#abap-package-version-badge).
+Currently the service is available at new url [abap-version-shield.sbcg.com.ua](https://abap-version-shield.sbcg.com.ua) (see below) and also a mirror at [tools.abappm.com](https://github.com/abapPM/tools.abappm.com/blob/main/README.md#abap-package-version-badge).
 
 ## Usage
 
