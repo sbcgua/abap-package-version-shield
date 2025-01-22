@@ -15,6 +15,7 @@ Updates:
     ☐ Maybe switch to TS + vite (or esbuild)
     ☐ remove root path (version-shield-json)
     ☐ But keep version-shield-json as a redirect
+    ☐ support VERSION_CONSTANT in abapgit json
 
 Stopped at 25-01-18:
     - trying to node_modules/.bin/sls package -> require IAM rights changes ... review sls docs
