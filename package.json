@@ -20,6 +20,7 @@
     "test:e2e:dev": "env E2E_TARGET=dev vitest run",
     "test:e2e:qa": "env E2E_TARGET=qa vitest run",
     "lint": "eslint",
+    "lint:wlist": "env DEBUG=eslint:eslint eslint",
     "deploy:prod": "bash ./bin/deploy-prod.sh",
     "deploy:qa": "bash ./bin/deploy-qa.sh",
     "deploy:dev": "bash ./bin/deploy-dev.sh",
@@ -29,19 +30,19 @@
     "info:prod": "serverless info -f getAbapVersionShieldJson --stage prod"
   },
   "devDependencies": {
-    "@eslint/js": "^9.18.0",
+    "@eslint/js": "^9.33.0",
     "@types/lodash-es": "^4.17.12",
-    "@types/node": "^22.10.7",
+    "@types/node": "^24.2.1",
     "@vercel/ncc": "^0.38.3",
-    "esbuild": "^0.24.2",
-    "eslint": "^9.18.0",
-    "globals": "^15.14.0",
-    "serverless": "^4.4.19",
+    "esbuild": "^0.25.8",
+    "eslint": "^9.33.0",
+    "globals": "^16.3.0",
+    "serverless": "^4.18.0",
     "serverless-domain-manager": "^8.0.0",
-    "vitest": "^3.0.2"
+    "vitest": "^3.2.4"
   },
   "dependencies": {
-    "fast-xml-parser": "^4.5.1",
+    "fast-xml-parser": "^5.2.5",
     "lodash-es": "^4.17.21"
   }
 }
