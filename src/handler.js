@@ -2,6 +2,7 @@ import { fetchResource, buildResponse } from './lib/utils.js';
 import { parsePathParams, validateQueryParams } from './lib/params.js';
 import { validateVersion, parseSourceFile } from './lib/parse.js';
 import { APACK_FILENAME, getVersionFromApack, getDependencyVersionFromApack } from './lib/apack.js';
+import pkg from '../package.json' with { type: 'json' };
 
 export async function getShieldJson (event, context) {
     try {
@@ -21,10 +22,24 @@ export async function errorStub() {
 async function handleEvent(event, context) {
     console.log('Requested path:', event.path);
 
-    // TODO support for about and/or version
-    // TODO separate different handlers
+    if (!event.pathParameters) throw Error('Unexpected pathParameters');
+    if (!event.pathParameters.sourcePath) throw Error('Unexpected pathParameters.sourcePath');
+    if (event.pathParameters.sourcePath === 'version') {
+        return processOwnVersionRequest();
+    } else {
+        return await processShieldRequest(event.pathParameters);
+    }
+}
 
-    const params = parsePathParams(event);
+function processOwnVersionRequest() {
+    return buildResponse({
+        name: pkg.name,
+        version: pkg.version,
+    });
+}
+
+async function processShieldRequest(pathParameters) {
+    const params = parsePathParams(pathParameters);
     const validatedParams = validateQueryParams(params);
     const url = createUrlFromParams('master', validatedParams); // TODO handle branches, also check main by default
     const srcData = await fetchResource(url);

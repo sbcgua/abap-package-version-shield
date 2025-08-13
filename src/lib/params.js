@@ -6,7 +6,7 @@ function unescape(str) {
     return str.replace(/%23/g, '#'); // namespace delimiter
 }
 
-export function parsePathParams({pathParameters}) {
+export function parsePathParams(pathParameters) {
     if (!pathParameters) throw Error('Unexpected path');
     if (!pathParameters.sourcePath) throw Error('Unexpected source path');
     const segments = pathParameters.sourcePath.split('/').filter(s => s !== '');
