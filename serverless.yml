@@ -10,6 +10,8 @@ app: abapversionshield
 #     params:
 #       key1: prodValue
 
+# Notes: strange bug: requires npm run esbuild first ... not sure why
+
 build:
   esbuild:
     bundle: true
