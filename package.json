@@ -1,6 +1,6 @@
 {
   "name": "abap-package-version-shield",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Custom handler for shields.io to display abap package version",
   "author": "Alexander Tsybulsky",
   "license": "ISC",
@@ -12,8 +12,7 @@
   "type": "module",
   "exports": "./src/handler.js",
   "scripts": {
-    "build-ncc": "ncc build src/handler.js -o dist",
-    "build-esuild": "esbuild src/handler.js --bundle --platform=node --format=esm --tree-shaking=true --outfile=dist/out.js",
+    "build-esbuild": "esbuild src/handler.js --bundle --platform=node --format=esm --tree-shaking=true --outfile=dist/out.js",
     "test": "vitest",
     "test:watch": "vitest watch",
     "test:e2e": "env E2E_TARGET=prod vitest run",
@@ -27,13 +26,13 @@
     "shutdown:qa": "bash ./bin/remove-qa.sh",
     "shutdown:dev": "bash ./bin/remove-dev.sh",
     "logs": "serverless logs -f getAbapVersionShieldJson --stage dev -t",
-    "info:prod": "serverless info -f getAbapVersionShieldJson --stage prod"
+    "info:dev": "serverless info --stage dev",
+    "info:prod": "serverless info --stage prod"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^24.2.1",
-    "@vercel/ncc": "^0.38.3",
     "esbuild": "^0.25.8",
     "eslint": "^9.33.0",
     "globals": "^16.3.0",
