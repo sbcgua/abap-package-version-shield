@@ -6,6 +6,9 @@
 
 @prodHostPrefix = ktoucvjm5f
 
+### Version [PROD]
+GET https://{{prodHostPrefix}}.execute-api.eu-west-1.amazonaws.com/prod/version-shield-json/version
+
 ### Bare AWS [PROD]
 GET https://{{prodHostPrefix}}.execute-api.eu-west-1.amazonaws.com/prod/version-shield-json/github/sbcgua/mockup_loader/src/core/zif_mockup_loader.intf.abap
 
