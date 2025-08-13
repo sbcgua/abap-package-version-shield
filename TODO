@@ -1,0 +1,20 @@
+Maintenance:
+    ✔ switch to `nodejs22.x` @done(25-08-12 18:33)
+    ✔ add bundler ( `@vercel/ncc` ? or `vite` or `esbuild` inside serverless) @done(25-08-13 07:03)
+    ✔ update serverless @done(25-08-12 18:33)
+    ☐ switch config to abap-version-shield.sbcg.com.ua (+ certificate)
+    ✔ add `version` endpoint @done(25-08-13 06:16)
+        ☐ or `about` endpoint (name, version, web-url)
+
+Update dependencies:
+    ✘ The querystring API is considered Legacy. new code should use the URLSearchParams API instead @cancelled(25-01-18 20:23)
+    ✘ Upgrade to v7.0.2+ of superagent @cancelled(25-01-18 20:23)
+
+Updates:
+    ✔ Upgrade to esm @done(25-01-18 20:22)
+    ✔ Switch to vitest @done(25-01-18 20:22)
+    ☐ Maybe switch to TS + esbuild
+    ☐ remove root path (version-shield-json) - if possible?
+        ☐ But keep version-shield-json as a redirect
+    ☐ support VERSION_CONSTANT in abapgit json
+        Not that easy: .abapgit contains object name, not the filename

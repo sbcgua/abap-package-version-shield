@@ -1,7 +1,8 @@
-const {
+import { describe, expect, test } from 'vitest';
+import {
     parsePathParams,
     validateQueryParams,
-} = require('./params');
+} from './params.js';
 
 describe('regular Validator tests', () => {
     test('should validate correct params', () => {
@@ -75,9 +76,7 @@ describe('regular Validator tests', () => {
 describe('Regular Parser tests', () => {
     test('should parse correct path', () => {
         expect(parsePathParams({
-            pathParameters: {
-                sourcePath: 'github/sbcgua/repo_name/src/zif.abap/attr_name'
-            },
+            sourcePath: 'github/sbcgua/repo_name/src/zif.abap/attr_name'
         })).toEqual({
             type: 'github',
             owner: 'sbcgua',
@@ -86,9 +85,7 @@ describe('Regular Parser tests', () => {
             attr: 'attr_name',
         });
         expect(parsePathParams({
-            pathParameters: {
-                sourcePath: 'github/sbcgua/repo_name/src/zif.abap'
-            },
+            sourcePath: 'github/sbcgua/repo_name/src/zif.abap'
         })).toEqual({
             type: 'github',
             owner: 'sbcgua',
@@ -99,9 +96,7 @@ describe('Regular Parser tests', () => {
 
     test('should parse path with namespace char', () => {
         expect(parsePathParams({
-            pathParameters: {
-                sourcePath: 'github/sbcgua/repo_name/src/%23hello%23zif.abap'
-            },
+            sourcePath: 'github/sbcgua/repo_name/src/%23hello%23zif.abap'
         })).toEqual({
             type: 'github',
             owner: 'sbcgua',
@@ -112,21 +107,15 @@ describe('Regular Parser tests', () => {
 
     test('should throw on incorrect path', () => {
         expect(() => parsePathParams({
-            pathParameters: {
-                sourcePath: ''
-            },
+            sourcePath: ''
         })).toThrow('Unexpected source path');
         expect(() => parsePathParams({
-            pathParameters: {
-                sourcePath: 'github/sbcgua/repo_name/src/zif.abap/attr_name/extra'
-            },
+            sourcePath: 'github/sbcgua/repo_name/src/zif.abap/attr_name/extra'
         })).toThrow('Unexpect path segment');
     });
     test('should throw on too long path', () => {
         expect(() => parsePathParams({
-            pathParameters: {
-                sourcePath: new Array(21).fill('a').join('/'),
-            },
+            sourcePath: new Array(21).fill('a').join('/'),
         })).toThrow('Too many path segments');
     });
 });
@@ -134,9 +123,7 @@ describe('Regular Parser tests', () => {
 describe('apack Parser tests', () => {
     test('should parse apack path', () => {
         expect(parsePathParams({
-            pathParameters: {
-                sourcePath: 'github/sbcgua/repo_name/.apack-manifest.xml'
-            },
+            sourcePath: 'github/sbcgua/repo_name/.apack-manifest.xml'
         })).toEqual({
             type: 'github',
             owner: 'sbcgua',
@@ -146,9 +133,7 @@ describe('apack Parser tests', () => {
     });
     test('should parse apack path with Extras', () => {
         expect(parsePathParams({
-            pathParameters: {
-                sourcePath: 'github/sbcgua/repo_name/.apack-manifest.xml/extra/extrap1/extrap2'
-            },
+            sourcePath: 'github/sbcgua/repo_name/.apack-manifest.xml/extra/extrap1/extrap2'
         })).toEqual({
             type: 'github',
             owner: 'sbcgua',

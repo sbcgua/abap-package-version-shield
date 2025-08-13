@@ -1,6 +1,7 @@
-var {XMLParser} = require('fast-xml-parser');
-const APACK_FILENAME = '.apack-manifest.xml';
-const { xmlGetChildrenOf } = require('./utils');
+import { XMLParser } from 'fast-xml-parser';
+
+export const APACK_FILENAME = '.apack-manifest.xml';
+import { xmlGetChildrenOf } from './utils.js';
 
 function parseXml(xmlStr) {
     try {
@@ -11,19 +12,19 @@ function parseXml(xmlStr) {
         });
         const xmlObj = parser.parse(xmlStr);
         return xmlObj;
-    } catch (error) {
+    } catch {
         throw Error('apack xml parsing error');
     }
 }
 
-function getVersionFromApack(xmlStr) {
+export function getVersionFromApack(xmlStr) {
     const parsedXML = parseXml(xmlStr);
     const versionNode = xmlGetChildrenOf(parsedXML, 'asx:abap/asx:values/DATA/VERSION');
     if (!versionNode || typeof versionNode !== 'string') throw Error('wrong apack xml structure');
     return versionNode;
 }
 
-function getDependencyVersionFromApack(xmlStr, depName) {
+export function getDependencyVersionFromApack(xmlStr, depName) {
     if (!depName || typeof depName !== 'string') throw Error('Incorrect dependency name');
     depName = depName.toLowerCase();
     const parsedXML = parseXml(xmlStr);
@@ -43,9 +44,3 @@ function getDependencyVersionFromApack(xmlStr, depName) {
 
     return target.VERSION;
 }
-
-module.exports = {
-    APACK_FILENAME,
-    getVersionFromApack,
-    getDependencyVersionFromApack,
-};

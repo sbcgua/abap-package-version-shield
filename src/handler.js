@@ -1,27 +1,10 @@
-'use strict';
+import { fetchResource, buildResponse } from './lib/utils.js';
+import { parsePathParams, validateQueryParams } from './lib/params.js';
+import { validateVersion, parseSourceFile } from './lib/parse.js';
+import { APACK_FILENAME, getVersionFromApack, getDependencyVersionFromApack } from './lib/apack.js';
+import pkg from '../package.json' with { type: 'json' };
 
-const {
-    fetchResource,
-    buildResponse,
-} = require('./lib/utils');
-
-const {
-    parsePathParams,
-    validateQueryParams,
-} = require('./lib/params');
-
-const {
-    validateVersion,
-    parseSourceFile,
-} = require('./lib/parse');
-
-const {
-    APACK_FILENAME,
-    getVersionFromApack,
-    getDependencyVersionFromApack,
-} = require('./lib/apack');
-
-module.exports.getShieldJson = async (event, context) => {
+export async function getShieldJson (event, context) {
     try {
         return await handleEvent(event, context);
     } catch (error) {
@@ -30,19 +13,35 @@ module.exports.getShieldJson = async (event, context) => {
     }
 };
 
-module.exports.errorStub = async () => {
+export async function errorStub() {
     console.error('Unexpected call');
     return buildErrorResponce('Unexpected call', 400);
 };
-
 
 // eslint-disable-next-line no-unused-vars
 async function handleEvent(event, context) {
     console.log('Requested path:', event.path);
 
-    const params = parsePathParams(event);
+    if (!event.pathParameters) throw Error('Unexpected pathParameters');
+    if (!event.pathParameters.sourcePath) throw Error('Unexpected pathParameters.sourcePath');
+    if (event.pathParameters.sourcePath === 'version') {
+        return processOwnVersionRequest();
+    } else {
+        return await processShieldRequest(event.pathParameters);
+    }
+}
+
+function processOwnVersionRequest() {
+    return buildResponse({
+        name: pkg.name,
+        version: pkg.version,
+    });
+}
+
+async function processShieldRequest(pathParameters) {
+    const params = parsePathParams(pathParameters);
     const validatedParams = validateQueryParams(params);
-    const url = createUrlFromParams('master', validatedParams);
+    const url = createUrlFromParams('master', validatedParams); // TODO handle branches, also check main by default
     const srcData = await fetchResource(url);
     let version = (validatedParams.file === APACK_FILENAME)
         ? validatedParams.apackExtra === 'dependencies'
@@ -61,6 +60,7 @@ function createUrlFromParams(branch, {type, owner, repo, file}) {
         const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${file}`;
         console.log('URL:', url);
         return url;
+    // TODO support for gitlab, bitbucket, azure ...
     } else {
         throw Error('Unexpected url type');
     }

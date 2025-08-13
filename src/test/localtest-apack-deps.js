@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const handler = require('../handler');
+import { getShieldJson } from '../handler.js';
 
 // 2021-08: mbtools/mbt-versions is offline
 
@@ -16,7 +16,7 @@ const handler = require('../handler');
 
     };
 
-    let result = await handler.getShieldJson(event, context);
+    let result = await getShieldJson(event, context);
     if (result instanceof Promise) result = await result;
     console.log(result);
 })();

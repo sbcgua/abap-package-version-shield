@@ -1,10 +1,14 @@
-const handler = require('./handler');
+import { vi, describe, expect, test } from 'vitest';
+import { getShieldJson } from './handler.js';
+import pkg from '../package.json' with { type: 'json' };
 
-jest.mock('https');
-const { PassThrough } = require('stream');
-const EventEmitter = require('events');
-const https = require('https');
-https.get.mockImplementation((url, handler) => {
+// eslint-disable-next-line no-unused-vars
+const testLog = console.log; // for debug outputs
+
+import { PassThrough } from 'stream';
+import EventEmitter from 'events';
+
+function httpGetMock(url, handler) {
     const resMock = new PassThrough();
     resMock.statusCode = 200;
     handler(resMock);
@@ -38,6 +42,36 @@ https.get.mockImplementation((url, handler) => {
 
     const reqMock = new EventEmitter();
     return reqMock;
+}
+
+vi.mock('https', () => ({
+    get: httpGetMock,
+    default: { get: httpGetMock },
+}));
+
+describe('test commands', () => {
+    test('should return version information', async () => {
+        const event = {
+            resource: '/version-shield-json/{sourcePath}',
+            path: '/version-shield-json/version',
+            pathParameters: {
+                sourcePath: 'version'
+            },
+        };
+        const context = {};
+
+        await expect(getShieldJson(event, context)).resolves.toEqual({
+            statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: 'abap-package-version-shield',
+                version: pkg.version,
+            }),
+        });
+    });
 });
 
 describe('test with path params', () => {
@@ -52,11 +86,11 @@ describe('test with path params', () => {
         const context = {};
 
         global.console = {
-            log: jest.fn(),
-            error: jest.fn(),
+            log: vi.fn(),
+            error: vi.fn(),
         };
 
-        await expect(handler.getShieldJson(event, context)).resolves.toEqual({
+        await expect(getShieldJson(event, context)).resolves.toEqual({
             statusCode: 200,
             headers: {
                 'Access-Control-Allow-Origin': '*',
@@ -84,11 +118,11 @@ describe('test with path params', () => {
         const context = {};
 
         global.console = {
-            log: jest.fn(),
-            error: jest.fn(),
+            log: vi.fn(),
+            error: vi.fn(),
         };
 
-        await expect(handler.getShieldJson(event, context)).resolves.toEqual({
+        await expect(getShieldJson(event, context)).resolves.toEqual({
             statusCode: 400,
             headers: {
                 'Access-Control-Allow-Origin': '*',
@@ -99,6 +133,7 @@ describe('test with path params', () => {
             }),
         });
         expect(console.error).toBeCalled();
+        // testLog(console.log.mock.calls);
     });
 
     test('should fail with wrong version format', async () => {
@@ -112,11 +147,11 @@ describe('test with path params', () => {
         const context = {};
 
         global.console = {
-            log: jest.fn(),
-            error: jest.fn(),
+            log: vi.fn(),
+            error: vi.fn(),
         };
 
-        await expect(handler.getShieldJson(event, context)).resolves.toEqual({
+        await expect(getShieldJson(event, context)).resolves.toEqual({
             statusCode: 400,
             headers: {
                 'Access-Control-Allow-Origin': '*',
@@ -142,11 +177,11 @@ describe('test with apack', () => {
         const context = {};
 
         global.console = {
-            log: jest.fn(),
-            error: jest.fn(),
+            log: vi.fn(),
+            error: vi.fn(),
         };
 
-        await expect(handler.getShieldJson(event, context)).resolves.toEqual({
+        await expect(getShieldJson(event, context)).resolves.toEqual({
             statusCode: 200,
             headers: {
                 'Access-Control-Allow-Origin': '*',
@@ -176,11 +211,11 @@ describe('test with apack', () => {
         const context = {};
 
         global.console = {
-            log: jest.fn(),
-            error: jest.fn(),
+            log: vi.fn(),
+            error: vi.fn(),
         };
 
-        await expect(handler.getShieldJson(event, context)).resolves.toEqual({
+        await expect(getShieldJson(event, context)).resolves.toEqual({
             statusCode: 200,
             headers: {
                 'Access-Control-Allow-Origin': '*',

@@ -1,7 +1,8 @@
-const {
+import { expect, test } from 'vitest';
+import {
     validateVersion,
     parseSourceFile,
-} = require('./parse');
+} from './parse.js';
 
 test('should parse correct input', () => {
     expect(parseSourceFile([
