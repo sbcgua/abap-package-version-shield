@@ -4,7 +4,7 @@ import { globalIgnores } from 'eslint/config';
 
 export default [
   pluginJs.configs.recommended,
-  globalIgnores(['dist', 'node_modules']),
+  globalIgnores(['dist', 'node_modules', '.serverless']),
   {
     files: ["src/**/*.js"],
     languageOptions: {
